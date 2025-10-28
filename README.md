@@ -221,11 +221,11 @@ BIBLEMATE_MCP_AUDIENCE=
 
 要在模式之間切換，請在 BibleMate AI 提示中使用 `.mode` 命令。這將打開一個選擇對話框，您可以在其中選擇您偏好的模式。
 
-<img width="714" height="271" alt="圖片" src="https://github.com/user-attachments/assets/f836a0ad-ae77-4b07-bb74-f9af5bce26c6" />
+<img width="866" height="629" alt="Image" src="https://github.com/user-attachments/assets/72289d93-7d90-4dfe-9e16-1883adbb30ff" />
 
 為了幫助使用者了解當前的 AI 模式，輸入框的邊框顏色會在切換模式時發生變化。
 
-<img width="1732" height="1258" alt="圖片" src="https://github.com/user-attachments/assets/0b765955-02e5-4eee-95ca-8cdc5216dd1a" />
+<img width="866" height="629" alt="Image" src="https://github.com/user-attachments/assets/15a6d95b-29cf-47f7-9870-c9ff606f9b39" />
 
 您可以在 `config.py` 中自訂代理模式和夥伴模式的邊框顏色，方法是更改 `color_agent_mode` 和 `color_partner_mode` 的值。
 
@@ -400,7 +400,7 @@ UBA_API_PRIVATE_KEY=
 1.  安裝 Ollama - BibleMate AI 使用 `Ollama` 為語意搜尋生成嵌入。您可以在 https://ollama.com/ 找到說明。
 2.  下載一些資料檔案。在 BibleMate AI 提示中輸入 `.download` 並按照彈出對話框下載它們。
 
-<img width="510" height="326" alt="圖片" src="https://github.com/user-attachments/assets/ee05517f-1d48-47d1-85e8-5c134a646e03" />
+<img width="866" height="629" alt="Image" src="https://github.com/user-attachments/assets/1e8aa6b2-4c47-4fe0-9e9d-7d5163f88ea4" />
 
 您也可以手動下載檔案，解壓縮它們，並將它們放在 `~/agentmake/biblemate/data` 目錄中，其中 `~` 代表使用者的主目錄：
 

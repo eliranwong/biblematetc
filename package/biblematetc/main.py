@@ -512,6 +512,7 @@ async def main_async():
                 except (KeyboardInterrupt, asyncio.CancelledError):
                     display_cancel_message(console)
                     continue
+                messages[-1]["content"] = translation
                 display_info(console, Markdown(translation), title="翻譯")
                 # Get input again
                 continue
