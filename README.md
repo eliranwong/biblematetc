@@ -6,6 +6,12 @@
 
 <img width="1732" height="1302" alt="圖片" src="https://github.com/user-attachments/assets/cb19d61a-2492-474d-b67a-ef2c59c7bcff" />
 
+## 其他語言版本
+
+英文版： https://github.com/eliranwong/biblemate
+
+簡體中文版： https://github.com/eliranwong/biblematesc
+
 ## 👀 總覽
 
 英文：
@@ -64,17 +70,17 @@ BibleMate AI + `XAI + Grok 4` https://youtu.be/JgcxciOc_Ys
 
 ### 後端設定範例
 
-更多詳情請參閱 https://github.com/eliranwong/biblemate/tree/main/docs/backends_setup。
+更多詳情請參閱 https://github.com/eliranwong/biblematetc/tree/main/docs/backends_setup。
 
 ### 提示
 
-為了快速上手，我們建議從 `googleai` 後端開始，該後端已與 BibleMate AI 進行了廣泛測試。您可以免費獲取 Gemini API 金鑰。更多資訊請訪問：[https://github.com/eliranwong/biblemate/blob/main/docs/backends_setup/googleai.md](https://github.com/eliranwong/biblemate/blob/main/docs/backends_setup/googleai.md)。
+為了快速上手，我們建議從 `googleai` 後端開始，該後端已與 BibleMate AI 進行了廣泛測試。您可以免費獲取 Gemini API 金鑰。更多資訊請訪問：[https://github.com/eliranwong/biblematetc/blob/main/docs/backends_setup/googleai.md](https://github.com/eliranwong/biblematetc/blob/main/docs/backends_setup/googleai.md)。
 
 ## 🎬 示範 - 代理模式
 
 [![觀看影片](https://img.youtube.com/vi/QvPIyHOhrP0/maxresdefault.jpg)](https://youtu.be/QvPIyHOhrP0)
 
-另一個範例：[深入研究啟示錄第 7 章](https://github.com/eliranwong/biblemate/blob/main/test/In-depth_study_on_Revelation_7.md)
+另一個範例：[深入研究啟示錄第 7 章](https://github.com/eliranwong/biblematetc/blob/main/test/In-depth_study_on_Revelation_7.md)
 
 ## 🧩 代理工作流程
 
@@ -569,7 +575,7 @@ BibleMate 使用 `stdio` 作為與 BibleMate MCP 伺服器互動的預設傳輸�
 
 ### 使用本地聖經資料
 
-更多詳情請參閱[此處](https://github.com/eliranwong/biblemate/issues/15#issuecomment-3314130281)。
+更多詳情請參閱[此處](https://github.com/eliranwong/biblematetc/issues/15#issuecomment-3314130281)。
 
 ### 使用自訂 MCP 伺服器
 

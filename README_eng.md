@@ -54,17 +54,17 @@ BibleMate AI + `XAI + Grok 4` https://youtu.be/JgcxciOc_Ys
 
 ### Examples on Backend Setup
 
-Read https://github.com/eliranwong/biblemate/tree/main/docs/backends_setup for more details.
+Read https://github.com/eliranwong/biblematetc/tree/main/docs/backends_setup for more details.
 
 ### Tips
 
-To get started quickly, we recommend beginning with the `googleai` backend, which has been extensively tested with BibleMate AI. You can obtain a Gemini API key free of charge. For more information, visit: [https://github.com/eliranwong/biblemate/blob/main/docs/backends_setup/googleai.md](https://github.com/eliranwong/biblemate/blob/main/docs/backends_setup/googleai.md).
+To get started quickly, we recommend beginning with the `googleai` backend, which has been extensively tested with BibleMate AI. You can obtain a Gemini API key free of charge. For more information, visit: [https://github.com/eliranwong/biblematetc/blob/main/docs/backends_setup/googleai.md](https://github.com/eliranwong/biblematetc/blob/main/docs/backends_setup/googleai.md).
 
 ## 🎬 Demo - Agent Mode
 
 [![Watch the video](https://img.youtube.com/vi/QvPIyHOhrP0/maxresdefault.jpg)](https://youtu.be/QvPIyHOhrP0)
 
-Another example: [In-depth study on Revelation chapter 7](https://github.com/eliranwong/biblemate/blob/main/test/In-depth_study_on_Revelation_7.md)
+Another example: [In-depth study on Revelation chapter 7](https://github.com/eliranwong/biblematetc/blob/main/test/In-depth_study_on_Revelation_7.md)
 
 ## 🧩 Agentic Workflow
 
@@ -559,7 +559,7 @@ Run in another thread:
 
 ### Use Local Bible Data
 
-Read [HERE](https://github.com/eliranwong/biblemate/issues/15#issuecomment-3314130281) for more details.
+Read [HERE](https://github.com/eliranwong/biblematetc/issues/15#issuecomment-3314130281) for more details.
 
 ### Use Custom MCP Server
 

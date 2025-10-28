@@ -1,21 +1,21 @@
-# BibleMate AI
+# BibleMate AI 繁體中文版
 
-**BibleMate AI** is a groundbreaking, autonomous AI agent designed to revolutionize your Bible study. It can create study plans, coordinate multiple Bible tools, and take multi-step actions to complete complex Bible-related tasks, such as conducting an in-depth study of a particular Bible passage.
+**BibleMate AI** 是一款開創性的自主 AI 代理，旨在徹底改變您的聖經學習方式。它可以創建學習計劃、協調多種聖經工具，並採取多步驟行動來完成複雜的聖經相關任務，例如對特定聖經經文進行深入研究。
 
-Developer: Eliran Wong
+開發者：Eliran Wong
 
-## 👀 An Overview
+## 👀 概述
 
-[![Watch the video](https://img.youtube.com/vi/BxpLmpCm4QU/maxresdefault.jpg)](https://youtu.be/BxpLmpCm4QU)
+[![觀看影片](httpshttps://img.youtube.com/vi/BxpLmpCm4QU/maxresdefault.jpg)](https://youtu.be/BxpLmpCm4QU)
 
-## ✨ Core Features
+## ✨ 核心功能
 
-- **Autonomous AI Agent:** BibleMate AI can work independently to fulfill your bible study requests.
-- **Multi-step Task Execution:** It can break down complex tasks into smaller, manageable steps and execute them sequentially.
-- **Rich Toolset:** Comes with over 40 built-in bible tools, powered by our comprehensive bible suite, the [UniqueBible App](https://github.com/eliranwong/UniqueBible).
-- **Customizable and Extensible:** Advanced users can customize existing tools or add new ones to suit their specific needs.
-- **Flexible AI Backend:** Supports a variety of AI backends via [AgentMake AI](https://github.com/eliranwong/agentmake).
+- **自主 AI 代理：** BibleMate AI 可以獨立運作，滿足您的聖經學習請求。
+- **多步驟任務執行：** 它可以將複雜的任務分解為更小、更易於管理的步驟，並按順序執行。
+- **豐富的工具集：** 內建超過 40 種聖經工具，由我們全面的聖經套件 [UniqueBible App](https://github.com/eliranwong/UniqueBible) 提供支援。
+- **可自訂和可擴展：** 進階用戶可以自訂現有工具或添加新工具以滿足其特定需求。
+- **靈活的 AI 後端：** 透過 [AgentMake AI](httpshttps://github.com/eliranwong/agentmake) 支援各種 AI 後端。
 
-## Documentation
+## 文件
 
-https://github.com/eliranwong/biblemate/blob/main/README.md
+https://github.com/eliranwong/biblematetc/blob/main/README.md
