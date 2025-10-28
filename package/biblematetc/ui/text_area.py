@@ -76,7 +76,7 @@ async def getTextArea(input_suggestions:list=None, default_entry="", title="", m
                 title=title,
             ),
             Label(
-                "[Ctrl+S] Send [Ctrl+Q] Exit" if title else "[Ctrl+S] Send [Ctrl+Y] Help",
+                "[Ctrl+S] 確定 [Ctrl+Q] 退出" if title else "[Ctrl+S] 確定 [Ctrl+Y] 幫助",
                 align=WindowAlign.RIGHT,
                 style="fg:grey",
             ),

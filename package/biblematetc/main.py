@@ -355,7 +355,7 @@ async def main_async():
                     TextColumn("[progress.description]{task.description}"),
                     transient=True  # This makes the progress bar disappear after the task is done
                 ) as progress:
-                    task_id = progress.add_task(description if description else "Thinking ...", total=None)
+                    task_id = progress.add_task((description if description else "思考中 ...")+" [可按 `Ctrl+C` 取消]", total=None)
                     async_task = asyncio.create_task(process())
                     try:
                         while not async_task.done():
@@ -381,7 +381,9 @@ async def main_async():
                 Manages the async task and the progress bar.
                 """
                 if step_number:
-                    print(f"# 進行步驟 [{step_number}] ...")
+                    print(f"# 進行步驟 [{step_number}] ... [可按 `Ctrl+C` 取消]")
+                else:
+                    print("# 啓動中 ... [可按 `Ctrl+C` 取消]")
                 # Create the async task but don't await it yet.
                 task = asyncio.create_task(run_tool(tool, tool_instruction))
                 # Await the custom async progress bar that awaits the task.
