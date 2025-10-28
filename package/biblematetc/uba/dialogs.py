@@ -80,8 +80,8 @@ async def get_multiple_bibles(options, descriptions):
         default_values=config.last_multi_bible_selection,
         options=options,
         descriptions=descriptions,
-        title="Bibles",
-        text="Select versions to continue:"
+        title="聖經版本",
+        text="請選擇聖經版本："
     )
     if select:
         config.last_multi_bible_selection = select
@@ -89,11 +89,11 @@ async def get_multiple_bibles(options, descriptions):
     return []
 
 async def get_reference(verse_reference=True, exhaustiveReferences=False):
-    abbr = BibleBooks.abbrev["eng"]
+    abbr = BibleBooks.abbrev["tc"]
     input_suggestions = []
     for book in range(1,67):
         input_suggestions += list(abbr[str(book)])
-    result = await DIALOGS.getInputDialog(title="Bible Verse Reference", text="Enter a verse reference, e.g. John 3:16", default=config.last_bible_reference, suggestions=input_suggestions)
+    result = await DIALOGS.getInputDialog(title="聖經經文", text="請輸入經文參考，例`約翰福音 3:16`", default=config.last_bible_reference, suggestions=input_suggestions)
     if result:
         parser = BibleVerseParser(True, language="tc")
         result = parser.extractExhaustiveReferencesReadable(result) if exhaustiveReferences else parser.extractAllReferencesReadable(result)
@@ -103,13 +103,13 @@ async def get_reference(verse_reference=True, exhaustiveReferences=False):
         config.last_bible_reference = result
         return result
     if not result:
-        abbr = BibleBooks.abbrev["eng"]
+        abbr = BibleBooks.abbrev["tc"]
         book = await DIALOGS.getValidOptions(
             default=str(config.last_book),
             options=[str(book) for book in range(1,67)],
             descriptions=[abbr[str(book)][-1] for book in range(1,67)],
-            title="Bible Book",
-            text="Select a book to continue:"
+            title="書卷",
+            text="請選擇書卷："
         )
         if not book:
             return ""
@@ -117,8 +117,8 @@ async def get_reference(verse_reference=True, exhaustiveReferences=False):
         chapter = await DIALOGS.getValidOptions(
             default=str(config.last_chapter),
             options=[str(chapter) for chapter in range(1,BibleBooks.chapters[int(book)]+1)],
-            title="Bible Chapter",
-            text="Select a chapter to continue:"
+            title="章數",
+            text="請選擇章數："
         )
         if not chapter:
             return ""
@@ -127,8 +127,8 @@ async def get_reference(verse_reference=True, exhaustiveReferences=False):
             verse = await DIALOGS.getValidOptions(
                 default=str(config.last_verse),
                 options=[str(verse) for verse in range(1,BibleBooks.verses[int(book)][int(chapter)]+1)],
-                title="Bible Verse",
-                text="Select a verse to continue:"
+                title="節數",
+                text="請選擇節數："
             )
             if not verse:
                 return ""
@@ -143,8 +143,8 @@ async def uba_search_bible(options, descriptions):
         default=config.default_bible,
         options=options,
         descriptions=descriptions,
-        title="Search Bible",
-        text="Select a bible version to continue:"
+        title="搜索聖經",
+        text="請選擇聖經版本："
     )
     if not select:
         return ""
@@ -153,13 +153,13 @@ async def uba_search_bible(options, descriptions):
         default=str(config.last_book),
         options=["0"]+[str(book) for book in range(1,67)],
         descriptions=["ALL"]+[abbr[str(book)][-1] for book in range(1,67)],
-        title="Search in Book(s)",
-        text="Select all books or a book to continue:"
+        title="選擇書卷",
+        text="選擇所有書卷或特定書卷進行搜索："
     )
     if not book:
         return ""
     template = BIBLE_SEARCH_SCOPES[int(book)]
-    result = await DIALOGS.getInputDialog(title="Search Item", text="Enter an item to search for:")
+    result = await DIALOGS.getInputDialog(title="搜索", text="請輸入搜索關鍵字：")
     if not result:
         return ""
     return f"//{template}/{select}/{result}" if result else ""
@@ -169,8 +169,8 @@ async def uba_bible(options, descriptions):
         default=config.default_bible,
         options=options,
         descriptions=descriptions,
-        title="Bible",
-        text="Select a bible version to continue:"
+        title="聖經",
+        text="請選擇聖經版本："
     )
     if not select:
         return ""
@@ -182,8 +182,8 @@ async def uba_ref(options, descriptions):
         default=config.default_bible,
         options=options,
         descriptions=descriptions,
-        title="Cross-References",
-        text="Select a bible version to continue:"
+        title="經文串珠參考",
+        text="請選擇聖經版本："
     )
     if not select:
         return ""
@@ -196,7 +196,7 @@ async def uba_treasury(options, descriptions):
         options=options,
         descriptions=descriptions,
         title="Treasury of Scripture Knowledge",
-        text="Select a bible version to continue:"
+        text="請選擇聖經版本："
     )
     if not select:
         return ""
@@ -208,8 +208,8 @@ async def uba_chapter(options, descriptions):
         default=config.default_bible,
         options=options,
         descriptions=descriptions,
-        title="Bible",
-        text="Select a bible version to continue:"
+        title="聖經",
+        text="請選擇聖經版本："
     )
     if not select:
         return ""
@@ -239,8 +239,8 @@ async def uba_commentary(options, descriptions):
         default=config.default_commentary,
         options=options,
         descriptions=descriptions,
-        title="Bible Commentary",
-        text="Select a commentary to continue:"
+        title="聖經註釋書",
+        text="請選擇註釋書："
     )
     if not select:
         return ""
@@ -268,7 +268,7 @@ async def uba_morphology():
     return f"//morphology/{result}" if result else ""
 
 async def uba_dictionary():
-    result = await DIALOGS.getInputDialog(title="Search Dictionary", text="Enter a search item:")
+    result = await DIALOGS.getInputDialog(title="Search Dictionary", text="請輸入搜索項目：")
     return f"//dictionary/{result.strip()}" if result and result.strip() else ""
 
 async def uba_parallel(options, descriptions):
@@ -276,12 +276,12 @@ async def uba_parallel(options, descriptions):
         default=config.default_bible,
         options=options,
         descriptions=descriptions,
-        title="Search Bible Parallels",
-        text="Select a bible version to continue:"
+        title="搜索聖經平行經文",
+        text="請選擇聖經版本："
     )
     if not select:
         return ""
-    result = await DIALOGS.getInputDialog(title="Search Bible Parallels", text="Enter a search item:")
+    result = await DIALOGS.getInputDialog(title="Search Bible Parallels", text="請輸入搜索項目：")
     return f"//parallel/{select}/{result.strip()}" if result and result.strip() else ""
 
 async def uba_promise(options, descriptions):
@@ -289,28 +289,28 @@ async def uba_promise(options, descriptions):
         default=config.default_bible,
         options=options,
         descriptions=descriptions,
-        title="Search Bible Promises",
-        text="Select a bible version to continue:"
+        title="搜索聖經應許",
+        text="請選擇聖經版本："
     )
     if not select:
         return ""
-    result = await DIALOGS.getInputDialog(title="Search Bible Promises", text="Enter a search item:")
+    result = await DIALOGS.getInputDialog(title="搜索聖經應許", text="請輸入搜索項目：")
     return f"//promise/{select}/{result.strip()}" if result and result.strip() else ""
 
 async def uba_topic():
-    result = await DIALOGS.getInputDialog(title="Search Bible Topics", text="Enter a search item:")
+    result = await DIALOGS.getInputDialog(title="搜索聖經主題", text="請輸入搜索項目：")
     return f"//topic/{result.strip()}" if result and result.strip() else ""
 
 async def uba_name():
-    result = await DIALOGS.getInputDialog(title="Search Bible Names", text="Enter a search item:")
+    result = await DIALOGS.getInputDialog(title="搜索聖經名字", text="請輸入搜索項目：")
     return f"//name/{result.strip()}" if result and result.strip() else ""
 
 async def uba_character():
-    result = await DIALOGS.getInputDialog(title="Search Bible Characters", text="Enter a search item:")
+    result = await DIALOGS.getInputDialog(title="搜索聖經人物", text="請輸入搜索項目：")
     return f"//character/{result.strip()}" if result and result.strip() else ""
 
 async def uba_location():
-    result = await DIALOGS.getInputDialog(title="Search Bible Locations", text="Enter a search item:")
+    result = await DIALOGS.getInputDialog(title="搜索聖經地點", text="請輸入搜索項目：")
     return f"//location/{result.strip()}" if result and result.strip() else ""
 
 async def uba_encyclopedia(options, descriptions):
@@ -318,24 +318,24 @@ async def uba_encyclopedia(options, descriptions):
         default=config.default_encyclopedia,
         options=options,
         descriptions=descriptions,
-        title="Encyclopedia",
-        text="Select one of them to continue:"
+        title="百科全書",
+        text="請選擇百科全書："
     )
     if not select:
         return ""
-    result = await DIALOGS.getInputDialog(title=f"Search Encyclopedia - {select}", text="Enter a search item:")
+    result = await DIALOGS.getInputDialog(title=f"搜索百科全書 - {select}", text="請輸入搜索項目：")
     return f"//encyclopedia/{select}/{result.strip()}" if result and result.strip() else ""
 
 async def uba_lexicon(options):
     select = await DIALOGS.getValidOptions(
         default=config.default_lexicon,
         options=options,
-        title="Lexicon",
-        text="Select one of them to continue:"
+        title="原文字典",
+        text="請選擇原文字典："
     )
     if not select:
         return ""
-    result = await DIALOGS.getInputDialog(title=f"Search Lexicon - {select}", text="Enter a search item:")
+    result = await DIALOGS.getInputDialog(title=f"搜索原文字典 - {select}", text="請輸入搜索項目：")
     return f"//lexicon/{select}/{result.strip()}" if result and result.strip() else ""
 
 # Configure default modules
@@ -345,8 +345,8 @@ async def uba_default_bible(options, descriptions):
         default=config.default_bible,
         options=options,
         descriptions=descriptions,
-        title="Configure Default Bible",
-        text="Select a bible version:"
+        title="預設聖經版本",
+        text="請選擇預設的聖經版本："
     )
     return select if select else ""
 
@@ -355,8 +355,8 @@ async def uba_default_commentary(options, descriptions):
         default=config.default_commentary,
         options=options,
         descriptions=descriptions,
-        title="Configure Default Commentary",
-        text="Select a commentary:"
+        title="預設聖經註釋書",
+        text="請選擇預設的聖經註釋書："
     )
     return select if select else ""
 
@@ -365,8 +365,8 @@ async def uba_default_encyclopedia(options, descriptions):
         default=config.default_encyclopedia,
         options=options,
         descriptions=descriptions,
-        title="Configure Default Encyclopedia",
-        text="Select an encyclopedia:"
+        title="預設百科全書",
+        text="請選擇預設的百科全書："
     )
     return select if select else ""
 
@@ -374,8 +374,7 @@ async def uba_default_lexicon(options):
     select = await DIALOGS.getValidOptions(
         default=config.default_lexicon,
         options=options,
-        descriptions=descriptions,
-        title="Configure Default Lexicon",
-        text="Select a lexicon:"
+        title="預設原文字典",
+        text="請選擇預設的原文字典："
     )
     return select if select else ""

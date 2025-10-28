@@ -31,7 +31,7 @@ if not USER_OS == "Windows":
     import readline  # for better input experience
 
 # set window title
-set_title(f"BibleMate AI")
+set_title(f"聖經研讀小夥伴 BibleMate AI")
 
 parser = argparse.ArgumentParser(description = f"""BibleMate AI {BIBLEMATE_VERSION} CLI options""")
 # global options
@@ -264,7 +264,7 @@ async def download_data(console, default=""):
             zip_ref.extractall(BIBLEMATEDATA)
         if os.path.isfile(output):
             os.remove(output)
-        info = "請重新啟動以使變更生效！"
+        info = "請重新啟動 BibleMate AI，啓用改動後的設定！"
         display_info(console, info)
 
 async def main_async():
@@ -328,7 +328,7 @@ async def main_async():
         resource_suggestions += [f"//commentary/{i}/" for i in resource_suggestions_raw["commentaryListAbb"]]
         resource_suggestions += [f"//encyclopedia/{i}/" for i in resource_suggestions_raw["encyclopediaListAbb"]]
         resource_suggestions += [f"//lexicon/{i}/" for i in resource_suggestions_raw["lexiconList"]]
-        abbr = BibleBooks.abbrev["eng"]
+        abbr = BibleBooks.abbrev["tc"]
         resource_suggestions += [abbr[str(book)][0] for book in range(1,67)]
         resource_suggestions += ["."+abbr[str(book)][0]+" " for book in range(1,67)]
 
@@ -415,7 +415,7 @@ async def main_async():
                             print("Viist https://github.com/eliranwong/agentmake#supported-backends for help about the backend configuration.\n")
                             if click.confirm("Do you want to configure my AI backend and model now?", default=True):
                                 edit_configurations()
-                                display_info(console, "請重新啟動以使變更生效！")
+                                display_info(console, "請重新啟動 BibleMate AI，啓用改動後的設定！")
                                 exit()
             # Original user request
             # note: `python3 -m rich.emoji` for checking emoji
@@ -437,8 +437,8 @@ async def main_async():
                     try:
                         config.current_prompt = readTextFile(check_path)
                     except:
-                        info = f"File `{check_path}` not readable!"
-                        display_info(console, info, title="Error!")
+                        info = f"不能讀取文件 `{check_path}`！"
+                        display_info(console, info, title="錯誤！")
                         config.current_prompt = check_path
                 continue
             # process user request
@@ -482,14 +482,35 @@ async def main_async():
                         if ideas_output:
                             ideas = ideas_output[-1].get("content", "").strip() if ideas_output else ""
                 try:
-                    await thinking(generate_ideas, "撰寫想法中 ...")
+                    await thinking(generate_ideas, "構思點子中 ...")
                     if not ideas_output:
                         display_cancel_message(console)
                         continue
                 except (KeyboardInterrupt, asyncio.CancelledError):
                     display_cancel_message(console)
                     continue
-                display_info(console, Markdown(ideas), title="Ideas")
+                display_info(console, Markdown(ideas), title="點子")
+                # Get input again
+                continue
+            # translate the last response
+            if user_request == ".translate":
+                # translate the last response
+                translation_output = []
+                translation = ""
+                async def generate_translation():
+                    nonlocal translation_output, translation
+                    translation_output = agentmake(messages, follow_up_prompt="將所提供的內容翻譯成繁體中文。不要思考，只需翻譯。只提供翻譯內容，無需額外評論或解釋。", **AGENTMAKE_CONFIG)
+                    if translation_output:
+                        translation = translation_output[-1].get("content", "").strip() if translation_output else ""
+                try:
+                    await thinking(generate_translation, "翻譯中 ...")
+                    if not translation_output:
+                        display_cancel_message(console)
+                        continue
+                except (KeyboardInterrupt, asyncio.CancelledError):
+                    display_cancel_message(console)
+                    continue
+                display_info(console, Markdown(translation), title="翻譯")
                 # Get input again
                 continue
 
@@ -625,13 +646,13 @@ async def main_async():
                                 resource_content = await client.read_resource(re.sub("^(.*?/)[^/]*?$", r"\1", uri)+urllib.parse.quote(select.replace("/", "「」")))
                                 resource_content = resource_content[0].text
                         else:
-                            resource_content = "Cancelled by user."
+                            resource_content = "使用者已取消。"
                     if resource_content:
                         messages += [
                             {"role": "user", "content": f"Retrieve content from:\n\n{uri}"},
                             {"role": "assistant", "content": resource_content},
                         ]
-                        if resource_content == "Cancelled by user.":
+                        if resource_content == "使用者已取消。":
                             info = resource_content
                             display_info(console, info)
                         else:
@@ -649,14 +670,14 @@ async def main_async():
                 cwd = os.getcwd()
             if user_request == ".open":
                 os.chdir(BIBLEMATE_USER_DIR)
-                open_item = await DIALOGS.getInputDialog(title="Open", text="Enter a file or folder path:", suggestions=PathCompleter())
+                open_item = await DIALOGS.getInputDialog(title="開啓檔案或資料夾", text="請輸入要開啟的檔案或資料夾路徑：", suggestions=PathCompleter())
                 if not open_item:
                     open_item = os.getcwd()
                 user_request = f".open {open_item}"
             elif user_request == ".import":
                 chats_path = os.path.join(BIBLEMATE_USER_DIR, "chats")
                 os.chdir(chats_path)
-                import_item = await DIALOGS.getInputDialog(title="Import", text="Enter a conversation file or folder path:", suggestions=PathCompleter())
+                import_item = await DIALOGS.getInputDialog(title="輸入對話檔案或資料夾路徑", text="請輸入對話檔案或資料夾路徑：", suggestions=PathCompleter())
                 if import_item:
                     user_request = f".import {import_item}"
                 else:
@@ -666,9 +687,9 @@ async def main_async():
                 last_saved_conversation = os.path.join(temp_dir, "conversation.py")
                 if os.path.isfile(last_saved_conversation):
                     user_request = f".import {temp_dir}"
-                    display_info(console, "Reloading ...")
+                    display_info(console, "重新載入中 ...")
                 else:
-                    display_info(console, "Temporary conversation not found!")
+                    display_info(console, "找不到對話臨時檔案！")
                     continue
             if user_request.startswith(".open ") and isExistingPath(user_request[6:]):
                 file_path = isExistingPath(user_request[6:])
@@ -687,7 +708,7 @@ async def main_async():
                     elif os.path.isdir(load_path) and os.path.isfile(os.path.join(load_path, "conversation.py")) and os.path.isfile(os.path.join(load_path, "master_plan.md")):
                         file_path = os.path.join(load_path, "conversation.py")
                     else:
-                        print("Expected a file or a directory containing `conversation.py` and `master_plan.md`.")
+                        print("只接受包含 `conversation.py` 和 `master_plan.md` 的文件夾。")
                         os.chdir(cwd)
                         continue
                     backup_conversation(messages, master_plan, console)
@@ -736,65 +757,66 @@ async def main_async():
                     config.backup_required = False
                 elif user_request == ".help":
                     actions = "\n".join([f"- `{k}`: {v}" for k, v in config.action_list.items()])
-                    help_info = f"""## Readme
+                    help_info = f"""## BibleMate AI
 
 https://github.com/eliranwong/biblemate
 
-## Key Commands
+## 特定指令
 
 {actions}
 
-## Key Bindings
 
-- `Ctrl+Y`: help info
-- `Ctrl+S` or `Esc+ENTER` or `Alt+ENTER`: submit input
-- `Ctrl+N`: new conversation
-- `Esc+I`: import conversation
-- `Esc+O`: edit conversation
-- `Ctrl+O`: edit input in text editor
-- `Ctrl+Q`: exit input
-- `Ctrl+R`: reset input
-- `Ctrl+Z`: undo input changes
-- `Ctrl+W`: save prompt / plan
-- `Esc+W`: delete prompt / plan
-- `Ctrl+L`: open prompt / plan
-- `Esc+L`: search prompt / plan
-- `Ctrl+B`: open bible-related features
-- `Ctrl+C`: open bible commentaries
-- `Ctrl+V`: open bible verse features
-- `Ctrl+X`: open cross-references features
-- `Ctrl+F`: open search features
-- `Ctrl+J`: change AI mode
-- `Ctrl+G`: toggle auto input suggestions
-- `Esc+G`: generate ideas for prompts to try
-- `Ctrl+P`: toggle auto prompt engineering
-- `Esc+P`: improve prompt content
-- `Esc+T`: toggle auto tool selection in chat mode
-- `Ctrl+D`: delete
-- `Ctrl+H`: backspace
-- `Ctrl+W`: delete previous word
-- `Ctrl+U`: kill text until start of line
-- `Ctrl+K`: kill text until end of line
-- `Ctrl+A`: go to beginning of line
-- `Ctrl+E`: go to end of line
-- `Ctrl+LEFT`: go to one word left
-- `Ctrl+RIGHT`: go to one word right
-- `Ctrl+UP`: scroll up
-- `Ctrl+DOWN`: scroll down
-- `Shift+TAB`: insert four spaces
-- `TAB` or `Ctrl+I`: open input suggestion menu
-- `Esc`: close input suggestion menu
+## 鍵盤快捷鍵
 
-## Cancel Loading an AI response
+- `Ctrl+Y`: 幫助資訊
+- `Ctrl+S` 或 `Esc+ENTER` 或 `Alt+ENTER`: 提交輸入
+- `Ctrl+N`: 新增對話
+- `Esc+I`: 匯入對話
+- `Esc+O`: 編輯對話
+- `Ctrl+O`: 在文字編輯器中編輯輸入
+- `Ctrl+Q`: 退出輸入
+- `Ctrl+R`: 重置輸入
+- `Ctrl+Z`: 復原輸入變更
+- `Ctrl+W`: 儲存指示 / 計劃
+- `Esc+W`: 刪除指示 / 計劃
+- `Ctrl+L`: 開啟指示 / 計劃
+- `Esc+L`: 搜尋指示 / 計劃
+- `Ctrl+B`: 開啟聖經相關功能
+- `Ctrl+C`: 開啟聖經註釋
+- `Ctrl+V`: 開啟聖經單節功能
+- `Ctrl+X`: 開啟經文串珠功能
+- `Ctrl+F`: 開啟搜尋功能
+- `Ctrl+J`: 變更 AI 模式
+- `Ctrl+G`: 切換自動輸入建議功能
+- `Esc+G`: 執行點子構思功能
+- `Ctrl+P`: 切換自動優化輸入內容功能
+- `Esc+P`: 直接優化輸入內容
+- `Esc+T`: 在對話模式中切換自動工具選用功能
+- `Ctrl+D`: 刪除
+- `Ctrl+H`: 倒退鍵
+- `Ctrl+W`: 刪除前一個單字
+- `Ctrl+U`: 刪除文字直到行首
+- `Ctrl+K`: 刪除文字直到行尾
+- `Ctrl+A`: 跳到行首
+- `Ctrl+E`: 跳到行尾
+- `Ctrl+LEFT`: 向左移動一個單字
+- `Ctrl+RIGHT`: 向右移動一個單字
+- `Ctrl+UP`: 向上捲動
+- `Ctrl+DOWN`: 向下捲動
+- `Shift+TAB`: 插入四個空格
+- `TAB` 或 `Ctrl+I`: 開啟輸入建議選單
+- `Esc+Esc`: 關閉輸入建議選單
 
-Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiting for a response."""
+## 取消正在進行的操作
+
+請按 `Ctrl+C` 一或兩次，直到正在進行的操作被取消。"""
                     display_info(console, Markdown(help_info), title="Help")
                 elif user_request == ".tools":
                     enabled_tools = await DIALOGS.getMultipleSelection(
                         default_values=available_tools,
                         options=master_available_tools,
-                        title="Tool Options",
-                        text="Select tools to enable:"
+                        title="工具選項",
+                        text="請選擇要啓用的工具："
                     )
                     if enabled_tools is not None:
                         available_tools = enabled_tools
@@ -803,23 +825,23 @@ Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiti
                         write_user_config()
                     tools_descriptions = [f"- `{name}`: {description}" for name, description in tools.items()]
                     info = Markdown("\n".join(tools_descriptions))
-                    display_info(console, info, title="Available Tools")
+                    display_info(console, info, title="可用工具")
                 elif user_request == ".resources":
                     resources_descriptions = [f"- `//{name}`: {description}" for name, description in resources.items()]
                     templates_descriptions = [f"- `//{name}/...`: {description}" for name, description in templates.items()]
                     info = Markdown("## Information\n\n"+"\n".join(resources_descriptions)+"\n\n## Templates\n\n"+"\n".join(templates_descriptions))
-                    display_info(console, info, title="Available Resources")
+                    display_info(console, info, title="可用資源")
                 elif user_request == ".plans":
                     prompts_descriptions = [f"- `/{name}`: {description}" for name, description in prompts.items()]
                     info = Markdown("\n".join(prompts_descriptions))
-                    display_info(console, info, title="Available Plans")
+                    display_info(console, info, title="可用計劃")
                 elif user_request == ".export":
                     cwd = os.getcwd()
                     chats_path = os.path.join(BIBLEMATE_USER_DIR, "chats")
                     if not os.path.isdir(chats_path):
                         Path(chats_path).mkdir(parents=True, exist_ok=True)
                     os.chdir(chats_path)
-                    export_item = await DIALOGS.getInputDialog(title="Export", text="Enter a name or path:", default=config.export_item, suggestions=PathCompleter())
+                    export_item = await DIALOGS.getInputDialog(title="輸出對話記錄", text="請輸入檔案名稱或路徑：", default=config.export_item, suggestions=PathCompleter())
                     if export_item:
                         config.export_item = export_item
                         export_item_parent = os.path.dirname(export_item)
@@ -832,7 +854,7 @@ Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiti
                         try:
                             backup_conversation(messages, master_plan, console, storage_path=storage_path)
                         except Exception as e:
-                            print(f"Error: {e}\n")
+                            print(f"錯誤： {e}\n")
                     os.chdir(cwd)
                 elif user_request == ".trim":
                     options = [str(i) for i in range(0, len(messages))]
@@ -840,8 +862,8 @@ Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiti
                         default=str(len(messages)-1),
                         options=options,
                         descriptions=[f"{messages[int(i)]['role']}: "+(messages[int(i)]['content'].replace('\n', ' ')[:50]+'...' if len(messages[int(i)]['content'])>50 else messages[int(i)]['content'].replace('\n', ' ')) for i in options],
-                        title="Trim Conversation",
-                        text="Select an entry to be removed:\n(Note: Its paired user/assistant content will also be removed.)"
+                        title="刪減對話內容",
+                        text="請選擇要刪減的對話內容項目：\n（備註：對應的用戶和助理對話內容將會一同被刪減）"
                     )
                     if index_to_trim:
                         index_to_trim = int(index_to_trim)
@@ -861,8 +883,8 @@ Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiti
                         default=str(len(messages)-1),
                         options=options,
                         descriptions=[f"{messages[int(i)]['role']}: "+(messages[int(i)]['content'].replace('\n', ' ')[:50]+'...' if len(messages[int(i)]['content'])>50 else messages[int(i)]['content'].replace('\n', ' ')) for i in options],
-                        title="Edit Conversation",
-                        text="Select an entry to edit:"
+                        title="修改對話內容",
+                        text="請選擇要修改的對話內容項目："
                     )
                     if index_to_edit:
                         index_to_edit = int(index_to_edit)
@@ -877,71 +899,71 @@ Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiti
                         if edited_content and not (messages[index_to_edit]["content"] == edited_content):
                             messages[index_to_edit]["content"] = edited_content
                             backup_conversation(messages, master_plan) # temporary backup
-                            display_info(console, Markdown(edited_content), title="Edited")
+                            display_info(console, Markdown(edited_content), title="修改後的內容")
                             config.backup_required = True
                 elif user_request == ".backend":
                     edit_configurations()
-                    info = "`Restart` to make the changes in the backend effective!"
-                    display_info(console, info, title="configuration")
+                    info = "請重新啟動 BibleMate AI，啓用改動後的設定！"
+                    display_info(console, info, title="設定")
                 elif user_request == ".steps":
-                    console.print("Enter below the maximum number of steps allowed:")
+                    console.print("請輸入允許執行步驟的最大數目：")
                     max_steps = await getTextArea(default_entry=str(config.max_steps), title="Enter a positive integer:", multiline=False)
                     if max_steps:
                         try:
                             max_steps = int(max_steps)
                             if max_steps <= 0:
-                                console.print("Invalid input.", justify="center")
+                                console.print("輸入不正確。", justify="center")
                             else:
                                 config.max_steps = max_steps
                                 write_user_config()
-                                info = f"Maximum number of steps set to `{config.max_steps}`"
-                                display_info(console, info, title="configuration")
+                                info = f"最多的執行步驟數目設定爲 `{config.max_steps}`"
+                                display_info(console, info, title="設定")
                         except:
-                            info = "Invalid input."
-                            display_info(console, info, title="Error!")
+                            info = "輸入不正確。"
+                            display_info(console, info, title="錯誤！")
                 elif user_request == ".matches":
-                    console.print("Enter below the maximum number of semantic matches allowed:")
+                    console.print("請輸入允許語義搜索的最大數目：")
                     max_semantic_matches = await getTextArea(default_entry=str(config.max_semantic_matches), title="Enter a positive integer:", multiline=False)
                     if max_semantic_matches:
                         try:
                             max_semantic_matches = int(max_semantic_matches)
                             if max_semantic_matches <= 0:
-                                console.print("Invalid input.", justify="center")
+                                console.print("輸入不正確。", justify="center")
                             else:
                                 config.max_semantic_matches = max_semantic_matches
                                 write_user_config()
-                                info = f"Maximum number of semantic matches set to `{config.max_semantic_matches}`"
-                                display_info(console, info, title="configuration")
+                                info = f"最多的語義搜索數目設定爲 `{config.max_semantic_matches}`"
+                                display_info(console, info, title="設定")
                         except:
-                            info = "Invalid input."
-                            display_info(console, info, title="Error!")
+                            info = "輸入不正確。"
+                            display_info(console, info, title="錯誤！")
                 elif user_request == ".content":
                     cwd = os.getcwd()
                     display_info(console, list_dir_content(cwd), title=cwd)
                 elif user_request == ".autoprompt":
                     config.prompt_engineering = not config.prompt_engineering
                     write_user_config()
-                    info = f"Prompt Engineering `{'Enabled' if config.prompt_engineering else 'Disabled'}`"
-                    display_info(console, info, title="configuration")
+                    info = f"自動優化用戶要求 `{'啓用' if config.prompt_engineering else '停用'}`"
+                    display_info(console, info, title="設定")
                 elif user_request == ".autosuggest":
                     config.auto_suggestions = not config.auto_suggestions
                     write_user_config()
-                    info = f"Auto Input Suggestions `{'Enabled' if config.auto_suggestions else 'Disabled'}`"
-                    display_info(console, info, title="configuration")
+                    info = f"自動提示用戶輸入 `{'啓用' if config.auto_suggestions else '停用'}`"
+                    display_info(console, info, title="設定")
                 elif user_request == ".autotool":
                     config.auto_tool_selection = not config.auto_tool_selection
                     write_user_config()
-                    info = f"Auto Tool Selection in Chat Mode `{'Enabled' if config.auto_tool_selection else 'Disabled'}`"
-                    display_info(console, info, title="configuration")
+                    info = f"於對話模式下自動選擇工具 `{'啓用' if config.auto_tool_selection else '停用'}`"
+                    display_info(console, info, title="設定")
                 elif user_request == ".light":
                     config.light = not config.light
                     write_user_config()
-                    info = f"Light Context `{'Enabled' if config.light else 'Disabled'}`"
-                    display_info(console, info, title="configuration")
+                    info = f"簡化對話歷史 `{'啓用' if config.light else '停用'}`"
+                    display_info(console, info, title="設定")
                 elif user_request == ".download":
                     await download_data(console)
                 elif user_request == ".find":
-                    query = await DIALOGS.getInputDialog(title="Search Chat Files", text="Enter a search query:")
+                    query = await DIALOGS.getInputDialog(title="搜索對話記錄", text="請輸入搜索內容：")
                     if query:
                         searchFolder(os.path.join(BIBLEMATE_USER_DIR, "chats"), query=query, filter="*conversation.py")
                         print()
@@ -950,7 +972,7 @@ Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiti
                     ai_mode = await DIALOGS.getValidOptions(
                         default=default_ai_mode,
                         options=["agent", "partner", "chat"],
-                        descriptions=["AGENT - Fully automated", "PARTNER - Semi-automated, with review and edit prompts", "CHAT - Direct text responses"],
+                        descriptions=["代理 - 全自動模式，AI 執行所有步驟", "搭檔 - 半自動操作模式，使用者參與檢閱及修改", "對話 - 簡單一問一答的對話模式"],
                         title="AI Modes",
                         text="Select an AI mode:"
                     )
@@ -962,43 +984,31 @@ Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiti
                         else:
                             config.agent_mode = None
                         write_user_config()
-                        display_info(console, f"`{ai_mode.capitalize()}` Mode Enabled", title="configuration")
-                elif user_request == ".agent":
-                    config.agent_mode = True
-                    write_user_config()
-                    display_info(console, f"`Agent` Mode Enabled", title="configuration")
-                elif user_request == ".partner":
-                    config.agent_mode = False
-                    write_user_config()
-                    display_info(console, f"`Partner` Mode Enabled", title="configuration")
-                elif user_request == ".chat":
-                    config.agent_mode = None
-                    write_user_config()
-                    display_info(console, f"`Chat` Mode Enabled", title="configuration")
+                        display_info(console, f"`{ai_mode.capitalize()}` 模式已啓用", title="設定")
                 elif user_request == ".defaultbible":
                     select = await uba_default_bible(options=resource_suggestions_raw["bibleListAbb"], descriptions=resource_suggestions_raw["bibleList"])
                     if select:
                         config.default_bible = select
                         write_user_config()
-                        display_info(console, f"Default bible set to `{config.default_bible}`", title="configuration")
+                        display_info(console, f"預設聖經版本設定爲 `{config.default_bible}`", title="設定")
                 elif user_request == ".defaultcommentary":
                     select = await uba_default_commentary(options=resource_suggestions_raw["commentaryListAbb"], descriptions=resource_suggestions_raw["commentaryList"])
                     if select:
                         config.default_commentary = select
                         write_user_config()
-                        display_info(console, f"Default commentary set to `{config.default_commentary}`", title="configuration")
+                        display_info(console, f"預設聖經註釋設定爲 `{config.default_commentary}`", title="設定")
                 elif user_request == ".defaultencyclopedia":
                     select = await uba_default_encyclopedia(options=resource_suggestions_raw["encyclopediaListAbb"], descriptions=resource_suggestions_raw["encyclopediaList"])
                     if select:
                         config.default_encyclopedia = select
                         write_user_config()
-                        display_info(console, f"Default encyclopedia set to `{config.default_encyclopedia}`", title="configuration")
+                        display_info(console, f"預設百科全書設定爲 `{config.default_encyclopedia}`", title="設定")
                 elif user_request == ".defaultlexicon":
                     select = await uba_default_lexicon(options=resource_suggestions_raw["lexiconList"])
                     if select:
                         config.default_lexicon = select
                         write_user_config()
-                        display_info(console, f"Default lexicon set to `{config.default_lexicon}`", title="configuration")
+                        display_info(console, f"預設原文字典設定爲 `{config.default_lexicon}`", title="設定")
                 elif user_request in (".new", ".exit"):
                     backup_conversation(messages, master_plan, console) # backup
                     config.backup_required = False
@@ -1072,7 +1082,7 @@ Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiti
                 async def refine_custom_plan():
                     nonlocal refine_output, messages, user_request, master_plan
                     # Summarize user request in one-sentence instruction
-                    refine_output = agentmake(master_plan, tool="biblemate/summarize_task_instruction", **AGENTMAKE_CONFIG)
+                    refine_output = agentmake(master_plan, tool=get_system_summarize_task_instruction(), **AGENTMAKE_CONFIG)
                     if refine_output:
                         user_request_content = refine_output[-1].get("content", "").strip()
                         if "```" in user_request_content:
@@ -1114,7 +1124,7 @@ Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiti
                             user_request = improved_prompt_output[-1].get("content", "").strip()
                             user_request = re.sub(r"^.*?(```improved_prompt|```)(.+?)```.*?$", r"\2", user_request, flags=re.DOTALL).strip()
                 try:
-                    await thinking(run_prompt_engineering, "優化指示中 ...")
+                    await thinking(run_prompt_engineering, "優化用戶要求中 ...")
                     if not improved_prompt_output:
                         display_cancel_message(console)
                         config.current_prompt = original_request
@@ -1125,7 +1135,7 @@ Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiti
                     continue
 
                 if not config.agent_mode:
-                    display_info(console, "請審閱並確認優化後的提示，或進行任何您需要的更改。", title="檢閱")
+                    display_info(console, "請審閱並確認優化後的指示，或進行任何您需要的更改。", title="檢閱")
                     improved_prompt_edit = await getTextArea(default_entry=user_request, title="檢閱：優化後的指示")
                     if not improved_prompt_edit or improved_prompt_edit == ".exit":
                         if messages and messages[-1].get("role", "") == "user":
@@ -1164,11 +1174,11 @@ Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiti
                             structured_output = getDictionaryOutput(messages=messages, schema=tool_schema, backend=config.backend)
                             tool_result = await client.call_tool(tool, structured_output, timeout=config.mcp_timeout)
                         tool_result = tool_result.content[0].text
-                        messages[-1]["content"] += f"\n\n[Using tool `{tool}`]"
-                        messages.append({"role": "assistant", "content": tool_result if tool_result.strip() else "Tool error!"})
+                        messages[-1]["content"] += f"\n\n[使用工具 `{tool}`]"
+                        messages.append({"role": "assistant", "content": tool_result if tool_result.strip() else "工具執行錯誤！"})
                     except Exception as e:
                         if DEVELOPER_MODE:
-                            console.print(f"Error: {e}\nFallback to direct response...\n\n")
+                            console.print(f"錯誤： {e}\n使用基本簡單對話模式 ...\n\n")
                             print(traceback.format_exc())
                         messages = agentmake(messages, system="auto", **AGENTMAKE_CONFIG)
                 messages[-1]["content"] = fix_string(messages[-1]["content"])

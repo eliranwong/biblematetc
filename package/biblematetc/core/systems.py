@@ -64,3 +64,12 @@ def get_system_improve_prompt_2() -> str:
     possible_system_file_path_1 = os.path.join(AGENTMAKE_USER_DIR, "systems", "improve_prompt_2.md")
     system_prompt = readTextFile(possible_system_file_path_2 if os.path.isfile(possible_system_file_path_2) else possible_system_file_path_1)
     return request_chinese_response(system_prompt)
+
+def get_system_summarize_task_instruction() -> str:
+    """
+    create system prompt for summarizing task instruction
+    """
+    possible_system_file_path_2 = os.path.join(PACKAGE_PATH, "systems", "biblemate", "summarize_task_instruction.md")
+    possible_system_file_path_1 = os.path.join(AGENTMAKE_USER_DIR, "systems", "biblemate", "summarize_task_instruction.md")
+    system_prompt = readTextFile(possible_system_file_path_2 if os.path.isfile(possible_system_file_path_2) else possible_system_file_path_1)
+    return request_chinese_response(system_prompt)
