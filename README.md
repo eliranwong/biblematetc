@@ -1,42 +1,52 @@
-# BibleMate AI
+# BibleMate AI (繁體中文)
 
-**BibleMate AI** is a groundbreaking, autonomous AI agent designed to revolutionize your Bible study. It can create study plans, coordinate multiple Bible tools, and take multi-step actions to complete complex Bible-related tasks, such as conducting an in-depth study of a particular Bible passage.
+**BibleMate AI** 是一款突破性的自主 AI 代理，旨在徹底改變您的聖經學習方式。它可以創建學習計劃、協調多種聖經工具，並採取多步驟行動來完成複雜的聖經相關任務，例如對特定聖經段落進行深入研究。
 
-Developer: Eliran Wong
+開發者：Eliran Wong
 
-<img width="1732" height="1302" alt="Image" src="https://github.com/user-attachments/assets/cb19d61a-2492-474d-b67a-ef2c59c7bcff" />
+<img width="1732" height="1302" alt="圖片" src="https://github.com/user-attachments/assets/cb19d61a-2492-474d-b67a-ef2c59c7bcff" />
 
-## 👀 An Overview
+## 👀 總覽
 
-[![Watch the video](https://img.youtube.com/vi/BxpLmpCm4QU/maxresdefault.jpg)](https://youtu.be/BxpLmpCm4QU)
+英文：
 
-## ✨ Core Features
+[![觀看影片](https://img.youtube.com/vi/BxpLmpCm4QU/maxresdefault.jpg)](https://youtu.be/BxpLmpCm4QU)
 
-- **Autonomous AI Agent:** BibleMate AI can work independently to fulfill your bible study requests.
-- **Multi-step Task Execution:** It can break down complex tasks into smaller, manageable steps and execute them sequentially.
-- **Rich Toolset:** Comes with over 40 built-in bible tools, powered by our comprehensive bible suite, the [UniqueBible App](https://github.com/eliranwong/UniqueBible).
-- **Customizable and Extensible:** Advanced users can customize existing tools or add new ones to suit their specific needs.
-- **Flexible AI Backend:** Supports a variety of AI backends via [AgentMake AI](https://github.com/eliranwong/agentmake).
+普通話：
 
-## 🖥️ Supported Platforms
+[![普通話影片](https://img.youtube.com/vi/BL8HXBFqmvE/maxresdefault.jpg)](https://youtu.be/BL8HXBFqmvE)
+
+廣東話：
+
+[![廣東話影片](https://img.youtube.com/vi/MmRR3uMQPd8/maxresdefault.jpg)](https://youtu.be/MmRR3uMQPd8)
+
+## ✨ 核心功能
+
+- **自主 AI 代理：** BibleMate AI 可以獨立工作，以滿足您的聖經學習請求。
+- **多步驟任務執行：** 它可以將複雜的任務分解為更小、可管理的步驟，並按順序執行。
+- **豐富的工具集：** 內建超過 40 種聖經工具，由我們全面的聖經套件 [UniqueBible App](https://github.com/eliranwong/UniqueBible) 提供支援。
+- **可自訂與擴充：** 進階使用者可以自訂現有工具或添加新工具，以滿足其特定需求。
+- **靈活的 AI 後端：** 透過 [AgentMake AI](https://github.com/eliranwong/agentmake) 支援多種 AI 後端。
+
+## 🖥️ 支援平台
 
 - Windows
 - macOS
 - Linux
 - ChromeOS
-- Android (via Piexel Terminal / Termux)
+- Android (透過 Piexel Terminal / Termux)
 
-### Supported Python versions
+### 支援的 Python 版本
 
 - 3.10
 - 3.11
 - 3.12
 
-## 🧠 Supported AI Backends
+## 🧠 支援的 AI 後端
 
-Powered by AgentMake AI, BibleMate AI offers users the flexibility to use various AI backends. Read more at https://github.com/eliranwong/agentmake#supported-backends
+由 AgentMake AI 驅動，BibleMate AI 為使用者提供了使用各種 AI 後端的靈活性。更多資訊請參閱：https://github.com/eliranwong/agentmake#supported-backends
 
-For comparison, we tested some of the supported backends using the same prompt `In-depth study on Lamentations 3:22-24` in the tests below:
+為了比較，我們在以下測試中使用了相同的提示 `深入研究耶利米哀歌 3:22-24` 來測試一些支援的後端：
 
 BibleMate AI + `Azure + ChatGPT 5` https://youtu.be/QvPIyHOhrP0
 
@@ -52,70 +62,70 @@ BibleMate AI + `Groq + Llama 3.3 70B` https://youtu.be/oKQyIEnMM8M
 
 BibleMate AI + `XAI + Grok 4` https://youtu.be/JgcxciOc_Ys
 
-### Examples on Backend Setup
+### 後端設定範例
 
-Read https://github.com/eliranwong/biblemate/tree/main/docs/backends_setup for more details.
+更多詳情請參閱 https://github.com/eliranwong/biblemate/tree/main/docs/backends_setup。
 
-### Tips
+### 提示
 
-To get started quickly, we recommend beginning with the `googleai` backend, which has been extensively tested with BibleMate AI. You can obtain a Gemini API key free of charge. For more information, visit: [https://github.com/eliranwong/biblemate/blob/main/docs/backends_setup/googleai.md](https://github.com/eliranwong/biblemate/blob/main/docs/backends_setup/googleai.md).
+為了快速上手，我們建議從 `googleai` 後端開始，該後端已與 BibleMate AI 進行了廣泛測試。您可以免費獲取 Gemini API 金鑰。更多資訊請訪問：[https://github.com/eliranwong/biblemate/blob/main/docs/backends_setup/googleai.md](https://github.com/eliranwong/biblemate/blob/main/docs/backends_setup/googleai.md)。
 
-## 🎬 Demo - Agent Mode
+## 🎬 示範 - 代理模式
 
-[![Watch the video](https://img.youtube.com/vi/QvPIyHOhrP0/maxresdefault.jpg)](https://youtu.be/QvPIyHOhrP0)
+[![觀看影片](https://img.youtube.com/vi/QvPIyHOhrP0/maxresdefault.jpg)](https://youtu.be/QvPIyHOhrP0)
 
-Another example: [In-depth study on Revelation chapter 7](https://github.com/eliranwong/biblemate/blob/main/test/In-depth_study_on_Revelation_7.md)
+另一個範例：[深入研究啟示錄第 7 章](https://github.com/eliranwong/biblemate/blob/main/test/In-depth_study_on_Revelation_7.md)
 
-## 🧩 Agentic Workflow
+## 🧩 代理工作流程
 
-1.  **BibleMate AI** receives a request from a user.
-2.  **BibleMate AI** analyzes the request and determines that it requires multiple steps to complete.
-3.  **BibleMate AI** generates a `Master Plan` that outlines the steps needed to complete the request.
-4.  **BibleMate AI** sends the `Master Plan` to a supervisor agent, who reviews the prompt and provides suggestions for improvement.
-5.  **BibleMate AI** sends the suggestions to a bible tool selection agent, who selects the most appropriate bible tools for each step of the `Master Plan`.
-6.  **BibleMate AI** sends the selected bible tools and the `Master Plan` to an instruction generation agent, who converts the suggestions into clear and concise instructions for an AI assistant to follow.
-7.  **BibleMate AI** sends the instructions to an AI assistant, who executes the instructions using the selected bible tools.
-8.  **BibleMate AI** monitors the progress of the AI assistant and provides additional suggestions or instructions as needed.
-9.  Once all steps are completed, **BibleMate AI** provides a concise summary of the results to the user.
-10. The user receives the final response, which fully resolves their original request.
+1.  **BibleMate AI** 接收使用者的請求。
+2.  **BibleMate AI** 分析請求並確定需要多個步驟才能完成。
+3.  **BibleMate AI** 生成一個 `主計畫`，概述完成請求所需的步驟。
+4.  **BibleMate AI** 將 `主計畫` 發送給監督代理，後者審查提示並提供改進建議。
+5.  **BibleMate AI** 將建議發送給聖經工具選擇代理，後者為 `主計畫` 的每個步驟選擇最合適的聖經工具。
+6.  **BibleMate AI** 將選定的聖經工具和 `主計畫` 發送給指令生成代理，後者將建議轉換為清晰簡潔的指令，供 AI 助理遵循。
+7.  **BibleMate AI** 將指令發送給 AI 助理，後者使用選定的聖經工具執行指令。
+8.  **BibleMate AI** 監控 AI 助理的進度，並根據需要提供額外的建議或指令。
+9.  所有步驟完成後，**BibleMate AI** 向使用者提供結果的簡潔摘要。
+10. 使用者收到最終回應，完全解決其原始請求。
 
-### Workflow Diagram
+### 工作流程圖
 
 ```mermaid
 graph TD
-    A[User] -- Request --> B(BibleMate AI);
-    B -- Generates Master Plan --> B;
-    B -- Master Plan --> C(Supervisor Agent);
-    C -- Suggestions --> B;
-    B -- Suggestions --> D(Bible Tool Selection Agent);
-    D -- Selected Tools --> B;
-    B -- Master Plan & Selected Tools --> E(Instruction Generation Agent);
-    E -- Instructions --> B;
-    B -- Instructions --> F(AI Assistant);
-    F -- Executes Instructions --> G((Bible Tools));
-    B -- Monitors --> F;
-    F -- Progress --> B;
-    B -- Summary --> A;
+    A[使用者] -- 請求 --> B(BibleMate AI);
+    B -- 生成主計畫 --> B;
+    B -- 主計畫 --> C(監督代理);
+    C -- 建議 --> B;
+    B -- 建議 --> D(聖經工具選擇代理);
+    D -- 選定的工具 --> B;
+    B -- 主計畫與選定的工具 --> E(指令生成代理);
+    E -- 指令 --> B;
+    B -- 指令 --> F(AI 助理);
+    F -- 執行指令 --> G((聖經工具));
+    B -- 監控 --> F;
+    F -- 進度 --> B;
+    B -- 摘要 --> A;
 ```
 
-## 🚀 Quick Start
+## 🚀 快速入門
 
 > pip install --upgrade biblematetc
 
 > biblematetc
 
-or
+或
 
 > bmtc
 
-Enter your request in the BibleMate AI prompt.
+在 BibleMate AI 提示中輸入您的請求。
 
-- Press `Ctrl+S` to submit your request.
-- Press `Ctrl+Y` to display help information.
+- 按 `Ctrl+S` 提交您的請求。
+- 按 `Ctrl+Y` 顯示幫助資訊。
 
-### Set up virtual environment
+### 設定虛擬環境
 
-For example:
+例如：
 
 ```
 cd
@@ -126,63 +136,63 @@ export PATH=$PATH:$HOME/biblematetc/bin
 biblematetc
 ```
 
-### For Android Users
+### Android 使用者
 
-If you find the default transport `stdio` does not work on Pixel Terminal or Termux terminal apps, use the workaround given below:
+如果您發現預設的 `stdio` 傳輸在 Pixel Terminal 或 Termux 終端應用程式上無法正常工作，請使用以下解決方法：
 
-Workaround: Run the built-in MCP server and the MCP client in two different tabs or sessions.
+解決方法：在兩個不同的標籤頁或會話中運行內建的 MCP 伺服器和 MCP 客戶端。
 
-Run the built-in BibleMate AI MCP server in a session:
+在一個會話中運行內建的 BibleMate AI MCP 伺服器：
 
 > biblematetcmcp
 
-Run the BibleMate AI interface in another session:
+在另一個會話中運行 BibleMate AI 介面：
 
 > biblematetc -mcp biblematetc
 
-### Support Using Vertex AI
+### 支援使用 Vertex AI
 
-Run:
+執行：
 
 > pip install --upgrade "biblematetc[genai]"
 
-### Upgrade
+### 升級
 
-Run again:
+再次執行：
 
 > pip install --upgrade biblematetc
 
-### For Developer
+### 開發者
 
 > pip install -e .
 
-## ⚙️ Configure AI Backend
+## ⚙️ 設定 AI 後端
 
-After BibleMate AI is launched, enter:
+啟動 BibleMate AI 後，輸入：
 
 > .backend
 
-A text editor is opened for you to edit the AgentMake AI settings. Change the `DEFAULT_AI_BACKEND` to your own choice of AI backend and enter API keys where appropriate.
+將會開啟一個文字編輯器，供您編輯 AgentMake AI 設定。將 `DEFAULT_AI_BACKEND` 更改為您自己選擇的 AI 後端，並在適當的地方輸入 API 金鑰。
 
-You may override the default AI backend temporarily by using the CLI option `-b` or `--backend`. For example,
+您可以使用 CLI 選項 `-b` 或 `--backend` 暫時覆寫預設的 AI 後端。例如，
 
 > biblematetc -b groq
 
-### Configure UBA API [Optional]
+### 設定 UBA API [可選]
 
-You can optionally configure the UBA API backend by editing the following items:
+您可以選擇性地透過編輯以下項目來設定 UBA API 後端：
 
 ```
-# Tool: UBA API
+# 工具：UBA API
 UBA_API_LOCAL_PORT=8080
 UBA_API_ENDPOINT="https://bible.gospelchurch.uk/plain"
 UBA_API_TIMEOUT=10
 UBA_API_PRIVATE_KEY=
 ```
 
-### Configure Remote MCP Server Authentication [Optional]
+### 設定遠端 MCP 伺服器驗證 [可選]
 
-You can optionally configure the authentication information for the remote MCP server by editing the following items:
+您可以選擇性地透過編輯以下項目來設定遠端 MCP 伺服器的驗證資訊：
 
 ```
 # BibleMate AI
@@ -193,204 +203,204 @@ BIBLEMATE_MCP_ISSUER=
 BIBLEMATE_MCP_AUDIENCE=
 ```
 
-## 🗣️ AI Modes
+## 🗣️ AI 模式
 
-You can select between three AI modes to suit your preferences:
+您可以在三種 AI 模式之間進行選擇，以適應您的偏好：
 
-*   **Chat mode** – Provides direct text responses without using tools, ideal for simple queries.
-*   **Agent mode** – A fully autonomous agent designed to plan, orchestrate tools, and take multiple actions to address user requests.
-*   **Partner mode** – A semi-automated mode that involves you in the process with review and edit prompts, giving you more control over the AI's actions.
+*   **聊天模式** – 提供直接的文字回應，不使用工具，非常適合簡單的查詢。
+*   **代理模式** – 一個完全自主的代理，旨在規劃、協調工具並採取多個行動來處理使用者請求。
+*   **夥伴模式** – 一種半自動模式，讓您參與審查和編輯提示的過程，從而對 AI 的行動有更多的控制。
 
-`Partner mode` is set as the default on fresh installation.
+新安裝時，`夥伴模式` 為預設模式。
 
-To switch between modes, use the `.mode` command in the BibleMate AI prompt. This will open a selection dialog where you can choose your preferred mode.
+要在模式之間切換，請在 BibleMate AI 提示中使用 `.mode` 命令。這將打開一個選擇對話框，您可以在其中選擇您偏好的模式。
 
-<img width="714" height="271" alt="Image" src="https://github.com/user-attachments/assets/f836a0ad-ae77-4b07-bb74-f9af5bce26c6" />
+<img width="714" height="271" alt="圖片" src="https://github.com/user-attachments/assets/f836a0ad-ae77-4b07-bb74-f9af5bce26c6" />
 
-To help users stay aware of the current AI mode, the input border color changes when switching between modes.
+為了幫助使用者了解當前的 AI 模式，輸入框的邊框顏色會在切換模式時發生變化。
 
-<img width="1732" height="1258" alt="Image" src="https://github.com/user-attachments/assets/0b765955-02e5-4eee-95ca-8cdc5216dd1a" />
+<img width="1732" height="1258" alt="圖片" src="https://github.com/user-attachments/assets/0b765955-02e5-4eee-95ca-8cdc5216dd1a" />
 
-You can customize the border colors of agent and partner modes in `config.py`, by changing the values of `color_agent_mode` and `color_partner_mode`.
+您可以在 `config.py` 中自訂代理模式和夥伴模式的邊框顏色，方法是更改 `color_agent_mode` 和 `color_partner_mode` 的值。
 
-## 📚 Built-in Tools & Plans
+## 📚 內建工具與計畫
 
-### Built-in Tools
+### 內建工具
 
-To see the full list of built-in tools and their descriptions, please see the [TOOLS.md](TOOLS.md) file.
+要查看內建工具及其描述的完整列表，請參閱 [TOOLS.md](TOOLS.md) 文件。
 
-To enable or disable some of the tools, enter `.tools` in the BibleMate AI prompt.
+要啟用或停用某些工具，請在 BibleMate AI 提示中輸入 `.tools`。
 
-When `agent mode` is enabled, all enabled built-in tools are considered and automatically selected for each step in fulfilling the user’s request.
+啟用 `代理模式` 後，所有已啟用的內建工具都會被考慮並自動為完成使用者請求的每個步驟選擇。
 
-### Built-in Plans
+### 內建計畫
 
-Built-in plans are predefined, frequently used 'master plans' that users can quickly access. Currently, we have added two built-in plans for demonstration purposes. Users can add their own plans via [customization](https://github.com/eliranwong/biblemate#customization).
+內建計畫是預定義的、經常使用的「主計畫」，使用者可以快速存取。目前，我們添加了兩個內建計畫作為示範。使用者可以透過[自訂](https://github.com/eliranwong/biblemate#customization)添加自己的計畫。
 
-Starts your prompt with a forward slash `/` to call a plan, e.g.:
+以正斜線 `/` 開始您的提示以呼叫計畫，例如：
 
 > /simple_bible_study John 3:16
 
 > /bible_devotion Deut 6:4
 
-## 🛠️ Single Tool Selection
+## 🛠️ 單一工具選擇
 
-In some cases, you may want to specify a particular tool for a simple task, rather than having multiple tools automatically selected in the fully automatic `agent mode`.
+在某些情況下，您可能希望為簡單的任務指定一個特定的工具，而不是在完全自動的 `代理模式` 中自動選擇多個工具。
 
-You can specify a single tool by prefixing a tool name with `@` at the beginning of your prompt. For example,
+您可以在提示的開頭使用 `@` 前綴一個工具名稱來指定單一工具。例如，
 
 ```
 @retrieve_bible_cross_references Deut 6:4; John 3:16
 ```
 
-Watch this video: https://youtu.be/50m1KRj6uhs
+觀看此影片：https://youtu.be/50m1KRj6uhs
 
-BibleMate AI can also automatically select a single tool to address your request. Simply begin your request with `@` followed by a space, instead of specifying a tool name. For example,
+BibleMate AI 也可以自動選擇單一工具來處理您的請求。只需在您的請求開頭輸入 `@` 後跟一個空格，而不是指定工具名稱。例如，
 
 ```
 @ Read Deut 6:4; John 3:16
 ```
 
-## 📝 Custom Master Plan
+## 📝 自訂主計畫
 
-In some cases, you may want to specify a `custom plan` with multiple tools specified for different steps for a complex task, rather than having a `master plan` automatically generated in fully automatic agent mode.
+在某些情況下，您可能希望為複雜的任務指定一個包含多個工具用於不同步驟的 `自訂計畫`，而不是在完全自動的代理模式下自動生成 `主計畫`。
 
-You can use a custom 'Master Plan' of your own, instead of one generated by BibleMate AI. To do this, start your BibleMate AI prompt with '@@' followed by your own master plan for a Bible study. 
+您可以使用自己的自訂「主計畫」，而不是由 BibleMate AI 生成的計畫。為此，請在您的 BibleMate AI 提示開頭輸入 `@@`，後跟您自己的聖經學習主計畫。
 
-For example,
-
-```
-@@ Analyze John 3:16 with the following steps: 
-1. Call tool 'retrieve_english_bible_verses' for Bible text, 
-2. Call tool 'retrieve_bible_cross_references' for Bible cross-references, 
-3. Call tool 'interpret_new_testament_verse' for interpretation, and 
-4. Call tool 'write_bible_theology' to explain its theology.
-```
-
-Watch this video: https://youtu.be/Lejq0sAx030
-
-Another example:
+例如，
 
 ```
-@@ Write touching devotion on Deuteronomy 6:4 with the following steps:
-1. Analyze the themes using @study_old_testament_themes
-2. Identify and explain key biblical keywords from the passage using @identify_bible_keywords
-3. Write insights for the devotion using @write_bible_insights
-4. Relate the passage to daily life using @write_bible_applications
-5. Compose a touching devotion using @write_bible_devotion.
-Ensure each step is clearly addressed and the final output is cohesive and inspiring
+@@ 使用以下步驟分析約翰福音 3:16：
+1. 呼叫工具 'retrieve_english_bible_verses' 獲取聖經文本，
+2. 呼叫工具 'retrieve_bible_cross_references' 獲取聖經交叉引用，
+3. 呼叫工具 'interpret_new_testament_verse' 進行解釋，以及
+4. 呼叫工具 'write_bible_theology' 解釋其神學。
 ```
 
-Watch this video: https://youtu.be/NYPyujFG09E
+觀看此影片：https://youtu.be/Lejq0sAx030
 
-The '@@' trick works even when you are using 'chat' mode with 'agent' mode disabled.
+另一個範例：
 
-## 🏃 Action Menu
+```
+@@ 使用以下步驟撰寫關於申命記 6:4 的感人靈修：
+1. 使用 @study_old_testament_themes 分析主題
+2. 使用 @identify_bible_keywords 識別並解釋經文中的關鍵聖經關鍵詞
+3. 使用 @write_bible_insights 為靈修撰寫見解
+4. 使用 @write_bible_applications 將經文與日常生活聯繫起來
+5. 使用 @write_bible_devotion 撰寫一篇感人的靈修。
+確保每個步驟都得到明確處理，並且最終輸出具有凝聚力和啟發性
+```
 
-| Command              | Description                        |
+觀看此影片：https://youtu.be/NYPyujFG09E
+
+即使您正在使用「聊天」模式並停用了「代理」模式，「@@」技巧也有效。
+
+## 🏃 操作選單
+
+| 命令                  | 描述                               |
 |----------------------|------------------------------------|
-| `.new`               | New conversation                   |
-| `.exit`              | Quit BibleMate AI                  |
-| `.backend`           | Change backend                     |
-| `.mode`              | Change AI mode                     |
-| `.tools`             | List available tools               |
-| `.plans`             | List available plans               |
-| `.resources`         | List available resources           |
-| `.editprompt`        | Edit current prompt                |
-| `.backup`            | Backup conversation                |
-| `.reload`            | Reload current conversation        |
-| `.edit`              | Edit current conversation          |
-| `.trim`              | Trim current conversation          |
-| `.import`            | Import conversation                |
-| `.export`            | Export conversation                |
-| `.find`              | Search conversation                |
-| `.content`           | Show current directory content     |
-| `.open`              | Open file or directory             |
-| `.ideas`             | Generate ideas                     |
-| `.autosuggest`       | Toggle auto input suggestions      |
-| `.autoprompt`        | Toggle auto prompt engineering     |
-| `.light`             | Toggle light context               |
-| `.steps`             | Set max number of steps            |
-| `.matches`           | Set max number of semantic matches |
-| `.download`          | Download data files                |
-| `.help`              | Show help page                     |
+| `.new`               | 新對話                              |
+| `.exit`              | 退出 BibleMate AI                  |
+| `.backend`           | 更改後端                            |
+| `.mode`              | 更改 AI 模式                        |
+| `.tools`             | 列出可用工具                         |
+| `.plans`             | 列出可用計畫                         |
+| `.resources`         | 列出可用資源                         |
+| `.editprompt`        | 編輯當前提示                         |
+| `.backup`            | 備份對話                            |
+| `.reload`            | 重新載入當前對話                     |
+| `.edit`              | 編輯當前對話                        |
+| `.trim`              | 修剪當前對話                        |
+| `.import`            | 匯入對話                           |
+| `.export`            | 匯出對話                           |
+| `.find`              | 搜尋對話                           |
+| `.content`           | 顯示當前目錄內容                    |
+| `.open`              | 開啟檔案或目錄                      |
+| `.ideas`             | 生成想法                           |
+| `.autosuggest`       | 切換自動輸入建議                   |
+| `.autoprompt`        | 切換自動提示工程                   |
+| `.light`             | 切換輕量上下文                     |
+| `.steps`             | 設定最大步驟數                     |
+| `.matches`           | 設定最大語意匹配數                 |
+| `.download`          | 下載資料檔案                       |
+| `.help`              | 顯示幫助頁面                       |
 
-Some commands are designed for retrieving content from UniqueBible App:
+一些命令設計用於從 UniqueBible App 檢索內容：
 
-| Command              | Description                        |
+| 命令                 | 描述                               |
 |----------------------|------------------------------------|
-| `.bible`             | Open bible verse                   |
-| `.chapter`           | Open bible chapter                 |
-| `.compare`           | Compare bible verse                |
-| `.comparechapter`    | Compare bible chapter              |
-| `.chronology`        | Open Bible Chronology              |
-| `.commentary`        | Open commentary                    |
-| `.aicommentary`      | Open AI commentary                 |
-| `.index`             | Open verse study indexes           |
-| `.translation`       | Open interlinear and translations  |
-| `.discourse`         | Open discourse analysis            |
-| `.morphology`        | Open morphology data               |
-| `.xref`              | Open cross-references              |
-| `.treasury`          | Open TSKE                          |
-| `.search`            | Search bible                       |
-| `.parallel`          | Search bible parallels             |
-| `.promise`           | Search bible promises              |
-| `.dictionary`        | Search dictionary                  |
-| `.encyclopedia`      | Search encyclopedia                |
-| `.lexicon`           | Search lexicon                     |
-| `.topic`             | Search bible topics                |
-| `.name`              | Search bible names                 |
-| `.character`         | Search bible characters            |
-| `.locations`         | Search bible locations             |
+| `.bible`             | 開啟聖經經文                       |
+| `.chapter`           | 開啟聖經章節                       |
+| `.compare`           | 比較聖經經文                       |
+| `.comparechapter`    | 比較聖經章節                       |
+| `.chronology`        | 開啟聖經年代表                     |
+| `.commentary`        | 開啟註釋                           |
+| `.aicommentary`      | 開啟 AI 註釋                       |
+| `.index`             | 開啟經文研究索引                   |
+| `.translation`       | 開啟逐字翻譯和譯本                 |
+| `.discourse`         | 開啟語篇分析                       |
+| `.morphology`        | 開啟形態學資料                     |
+| `.xref`              | 開啟交叉引用                       |
+| `.treasury`          | 開啟 TSKE                          |
+| `.search`            | 搜尋聖經                           |
+| `.parallel`          | 搜尋聖經平行經文                   |
+| `.promise`           | 搜尋聖經應許                       |
+| `.dictionary`        | 搜尋詞典                           |
+| `.encyclopedia`      | 搜尋百科全書                       |
+| `.lexicon`           | 搜尋詞典                           |
+| `.topic`             | 搜尋聖經主題                       |
+| `.name`              | 搜尋聖經名稱                       |
+| `.character`         | 搜尋聖經人物                       |
+| `.locations`         | 搜尋聖經地點                       |
 
-Key bindings `Ctrl+B`, `Ctrl+C`, `Ctrl+V` and `Ctrl+X` are designed for opening UBA content in BibleMate AI [[Read](https://github.com/eliranwong/biblemate#%EF%B8%8F-keyboard-shortcuts)].
+快速鍵 `Ctrl+B`、`Ctrl+C`、`Ctrl+V` 和 `Ctrl+X` 設計用於在 BibleMate AI 中開啟 UBA 內容 [[閱讀](https://github.com/eliranwong/biblemate#%EF%B8%8F-keyboard-shortcuts)]。
 
-### Remarks:
+### 備註：
 
-* Use `.light` to enable or disable *light context*. When *light context* is enabled (default), BibleMate operates slightly faster, with a minor trade-off in tool response quality. When *light context* is disabled, full context is used, which consumes more tokens for processing but delivers higher response quality.
-* To use `.import`, you need to specify a python file that contains a saved conversation.  Conversation is saved into a file each time when a backup is executed. Check the message `Conversation backup saved to ...` or locate the backups in `~/agentmake/computemate`. Instead of loading a mere conversation, you can load both a conversation and its master plan. To do so, specify a backup directory path that contains both `conversation.py` and `master_plan.md`.
-* To use `.open`, you need to specify a file or a directory that is to be opened.
-* `.edit` command allows you to edit the current conversation with our built-in text editor.  You may customize to use your favorite text editor. Enter `.backend` and change the value of `DEFAULT_TEXT_EDITOR` with a command that calls your favorite text editor.
-* Use `.autosuggest` to toggle auto input suggestions. If disabled, you can use `TAB` key to open input suggestions menu.
-* Use `.reload` to reload the last saved conversation, if any.  It is useful for continuing an unfinished agentic flow after a conversation was broken for any reasons.
-* Command `.matches` works for local MCP connection only.  It doesn't apply to remote MCP connection, as the changes in local settings does not affect the settings in remote servers.
-* Start your requests with `.` to retrieve bible verses or chapters, or perform a bible search directly, when the content following the `.` does not match the action commands listed above. For examples:
-    - Enter `.John 3:16` to read the verse John 3:16
-    - Enter `.John 3` to read John chapter 3
-    - Enter `.Jesus love` to perform a bible search for `Jesus love`
+*   使用 `.light` 啟用或停用*輕量上下文*。啟用*輕量上下文*（預設）時，BibleMate 運行速度稍快，工具回應品質略有折衷。停用*輕量上下文*時，使用完整上下文，這會消耗更多權杖進行處理，但提供更高的回應品質。
+*   要使用 `.import`，您需要指定一個包含已儲存對話的 python 檔案。每次執行備份時，對話都會儲存到一個檔案中。檢查訊息 `Conversation backup saved to ...` 或在 `~/agentmake/computemate` 中找到備份。除了載入單純的對話，您還可以同時載入對話及其主計畫。為此，請指定一個包含 `conversation.py` 和 `master_plan.md` 的備份目錄路徑。
+*   要使用 `.open`，您需要指定要開啟的檔案或目錄。
+*   `.edit` 命令允許您使用我們的內建文字編輯器編輯當前對話。您可以自訂使用您喜歡的文字編輯器。輸入 `.backend` 並使用呼叫您喜歡的文字編輯器的命令更改 `DEFAULT_TEXT_EDITOR` 的值。
+*   使用 `.autosuggest` 切換自動輸入建議。如果停用，您可以使用 `TAB` 鍵開啟輸入建議選單。
+*   使用 `.reload` 重新載入上次儲存的對話（如果有的話）。這對於在對話因任何原因中斷後繼續未完成的代理流程很有用。
+*   命令 `.matches` 僅適用於本地 MCP 連接。它不適用於遠端 MCP 連接，因為本地設定的更改不會影響遠端伺服器中的設定。
+*   當 `.` 後面的內容與上面列出的操作命令不匹配時，以 `.` 開始您的請求以直接檢索聖經經文或章節，或執行聖經搜尋。例如：
+    -   輸入 `.John 3:16` 閱讀約翰福音 3:16
+    -   輸入 `.John 3` 閱讀約翰福音第 3 章
+    -   輸入 `.Jesus love` 執行 `Jesus love` 的聖經搜尋
 
-## ✝️ UniqueBible Resources
+## ✝️ UniqueBible 資源
 
-We bring the best of both worlds together in BibleMate AI to enhance your Bible studies. In addition to dynamic AI tools, we have integrated direct access to most [UniqueBible resources](https://github.com/eliranwong/UniqueBible) via BibleMate AI prompts. At any point during a conversation with the AI agent, you can incorporate UniqueBible App data directly into the discussion to enrich the study flow and content.
+我們在 BibleMate AI 中結合了兩全其美的優點，以增強您的聖經學習。除了動態 AI 工具外，我們還整合了透過 BibleMate AI 提示直接存取大多數 [UniqueBible 資源](https://github.com/eliranwong/UniqueBible) 的功能。在與 AI 代理對話的任何時候，您都可以將 UniqueBible App 資料直接納入討論，以豐富學習流程和內容。
 
-Type `.resources` in the BibleMate AI prompt to view the available resources. The number of available UniqueBible resources depends on which [UniqueBible web server](https://github.com/eliranwong/UniqueBible) you configured in the backend settings. By default, BibleMate AI uses the UniqueBible web server running at https://bible.gospelchurch.uk. The UniqueBible server is highly customizable; you may set up a local server with your custom resources to use with BibleMate AI.
+在 BibleMate AI 提示中輸入 `.resources` 以查看可用資源。可用 UniqueBible 資源的數量取決於您在後端設定中配置的 [UniqueBible 網頁伺服器](https://github.com/eliranwong/UniqueBible)。預設情況下，BibleMate AI 使用在 https://bible.gospelchurch.uk 運行的 UniqueBible 網頁伺服器。UniqueBible 伺服器是高度可自訂的；您可以設定一個帶有自訂資源的本地伺服器與 BibleMate AI 一起使用。
 
-To connect BibleMate AI with your local server, enter `.backend` in the BibleMate AI prompt, locate the session below, and fill in your local server details:
+要將 BibleMate AI 與您的本地伺服器連接，請在 BibleMate AI 提示中輸入 `.backend`，找到下面的會話，並填寫您的本地伺服器詳細資訊：
 
 ```
-# Tool: UBA API
+# 工具：UBA API
 UBA_API_LOCAL_PORT=8080
 UBA_API_ENDPOINT="http://127.0.0.1:8080/plain"
 UBA_API_TIMEOUT=10
 UBA_API_PRIVATE_KEY=
 ```
 
-Tips: Start your prompt with `//` to view available resources from the input suggestions.
+提示：以 `//` 開始您的提示以從輸入建議中查看可用資源。
 
-## 🔎 Semantic Searches [Optional]
+## 🔎 語意搜尋 [可選]
 
-To enable semantic searches, you need two things:
+要啟用語意搜尋，您需要兩件事：
 
-1. Install Ollama - BibleMate AI uses `Ollama` to generate embeddings for semantic searches. You may find instruction at https://ollama.com/.
-2. Download a few data files. Type `.download` in the BibleMate AI prompt and follow the pop‑up dialog to download them.
+1.  安裝 Ollama - BibleMate AI 使用 `Ollama` 為語意搜尋生成嵌入。您可以在 https://ollama.com/ 找到說明。
+2.  下載一些資料檔案。在 BibleMate AI 提示中輸入 `.download` 並按照彈出對話框下載它們。
 
-<img width="510" height="326" alt="Image" src="https://github.com/user-attachments/assets/ee05517f-1d48-47d1-85e8-5c134a646e03" />
+<img width="510" height="326" alt="圖片" src="https://github.com/user-attachments/assets/ee05517f-1d48-47d1-85e8-5c134a646e03" />
 
-You can also download the files manually, unzip them, and place them in the directory `~/agentmake/biblemate/data`, where `~` represents the user's home directory:
+您也可以手動下載檔案，解壓縮它們，並將它們放在 `~/agentmake/biblemate/data` 目錄中，其中 `~` 代表使用者的主目錄：
 
 [bible.db](https://drive.google.com/file/d/1E6pDKfjUMhmMWjjazrg5ZcpH1RBD8qgW/view?usp=sharing)
 
-Examples:
+範例：
 
 > @search_the_whole_bible God create
 
@@ -398,7 +408,7 @@ Examples:
 
 [collection.db](https://drive.google.com/file/d/1y4txzRzXTBty0aYfFgkWfz5qlHERrA17/view?usp=sharing)
 
-Examples:
+範例：
 
 > //promise/hope
 
@@ -406,13 +416,13 @@ Examples:
 
 [dictionary.db](https://drive.google.com/file/d/1UxDKGEQa7UEIJ6Ggknx13Yt8XNvo3Ld3/view?usp=sharing)
 
-Example:
+範例：
 
 > //dictionary/Israel
 
 [encyclopedia.db](https://drive.google.com/file/d/1NLUBepvFd9UDxoGQyQ-IohmySjjeis2-/view?usp=sharing)
 
-Examples:
+範例：
 
 > //encyclopedia/Jesus
 
@@ -420,7 +430,7 @@ Examples:
 
 [exlb.db](https://drive.google.com/file/d/1Hpo6iLSh5KzgR6IZ-c7KuML--A3nmP1-/view?usp=sharing)
 
-Examples:
+範例：
 
 > //topic/hope
 
@@ -430,166 +440,166 @@ Examples:
 
 > //location/Jerusalem
 
-## ⌨️ Keyboard Shortcuts
+## ⌨️ 鍵盤快捷鍵
 
-The following key bindings are supported in BibleMate AI prompt field:
+BibleMate AI 提示欄位支援以下快速鍵：
 
-- `Ctrl+Y`: help info
-- `Ctrl+S` or `Esc+ENTER` or `Alt+ENTER`: submit input
-- `Ctrl+N`: new conversation
-- `Esc+I`: import conversation
-- `Esc+O`: edit conversation
-- `Ctrl+O`: edit input in text editor
-- `Ctrl+Q`: exit input
-- `Ctrl+R`: reset input
-- `Ctrl+Z`: undo input changes
-- `Ctrl+W`: save prompt / plan
-- `Esc+W`: delete prompt / plan
-- `Ctrl+L`: open prompt / plan
-- `Esc+L`: search prompt / plan
-- `Ctrl+B`: open bible-related features
-- `Ctrl+C`: open bible commentaries
-- `Ctrl+V`: open bible verse features
-- `Ctrl+X`: open cross-references features
-- `Ctrl+F`: open search features
-- `Ctrl+J`: change AI mode
-- `Ctrl+G`: toggle auto input suggestions
-- `Esc+G`: generate ideas for prompts to try
-- `Ctrl+P`: toggle auto prompt engineering
-- `Esc+P`: improve prompt content
-- `Ctrl+D`: delete
-- `Ctrl+H`: backspace
-- `Ctrl+W`: delete previous word
-- `Ctrl+U`: kill text until start of line
-- `Ctrl+K`: kill text until end of line
-- `Ctrl+A`: go to beginning of line
-- `Ctrl+E`: go to end of line
-- `Ctrl+LEFT`: go to one word left
-- `Ctrl+RIGHT`: go to one word right
-- `Ctrl+UP`: scroll up
-- `Ctrl+DOWN`: scroll down
-- `Shift+TAB`: insert four spaces
-- `TAB` or `Ctrl+I`: open input suggestion menu
-- `Esc`: close input suggestion menu
+- `Ctrl+Y`：幫助資訊
+- `Ctrl+S` 或 `Esc+ENTER` 或 `Alt+ENTER`：提交輸入
+- `Ctrl+N`：新對話
+- `Esc+I`：匯入對話
+- `Esc+O`：編輯對話
+- `Ctrl+O`：在文字編輯器中編輯輸入
+- `Ctrl+Q`：退出輸入
+- `Ctrl+R`：重設輸入
+- `Ctrl+Z`：復原輸入變更
+- `Ctrl+W`：儲存提示/計畫
+- `Esc+W`：刪除提示/計畫
+- `Ctrl+L`：開啟提示/計畫
+- `Esc+L`：搜尋提示/計畫
+- `Ctrl+B`：開啟聖經相關功能
+- `Ctrl+C`：開啟聖經註釋
+- `Ctrl+V`：開啟聖經經文功能
+- `Ctrl+X`：開啟交叉引用功能
+- `Ctrl+F`：開啟搜尋功能
+- `Ctrl+J`：更改 AI 模式
+- `Ctrl+G`：切換自動輸入建議
+- `Esc+G`：生成可嘗試的提示想法
+- `Ctrl+P`：切換自動提示工程
+- `Esc+P`：改進提示內容
+- `Ctrl+D`：刪除
+- `Ctrl+H`：退格
+- `Ctrl+W`：刪除前一個單詞
+- `Ctrl+U`：刪除到行首的文字
+- `Ctrl+K`：刪除到行尾的文字
+- `Ctrl+A`：移至行首
+- `Ctrl+E`：移至行尾
+- `Ctrl+LEFT`：向左移動一個單詞
+- `Ctrl+RIGHT`：向右移動一個單詞
+- `Ctrl+UP`：向上捲動
+- `Ctrl+DOWN`：向下捲動
+- `Shift+TAB`：插入四個空格
+- `TAB` 或 `Ctrl+I`：開啟輸入建議選單
+- `Esc+Esc`：關閉輸入建議選單
 
-### Cancel Loading an AI response
+### 取消載入 AI 回應
 
-Press `Ctrl+C` once or twice until the loading is cancelled, while you are waiting for a response.
+在等待回應時，按 `Ctrl+C` 一次或兩次，直到載入被取消。
 
-### Common shortcuts on Terminal Apps:
+### 終端機應用程式的通用快捷鍵：
 
-- `Ctrl+Shift+C`: Copy
-- `Ctrl+Shift+V`: Paste
+- `Ctrl+Shift+C`：複製
+- `Ctrl+Shift+V`：貼上
 
-## ✒️ Built-in Text Editor
+## ✒️ 內建文字編輯器
 
-<img width="866" height="629" alt="Image" src="https://github.com/user-attachments/assets/d62658d0-10df-4e56-8de3-58787600327f" />
+<img width="866" height="629" alt="圖片" src="https://github.com/user-attachments/assets/d62658d0-10df-4e56-8de3-58787600327f" />
 
-You can edit current prompt with our built-in text editor, by either enter `.editprompt` or pressing `Ctrl+O` in the BibleMate AI prompt field.
+您可以使用我們的內建文字編輯器編輯當前提示，方法是在 BibleMate AI 提示欄位中輸入 `.editprompt` 或按 `Ctrl+O`。
 
-You can also launch the built-in editor on its own by running `etextedit`.
+您也可以透過執行 `etextedit` 單獨啟動內建編輯器。
 
-You can use plugins that built with BibleMate AI and AgentMake AI in our built-in text editor `etextedit`.
+您可以在我們的內建文字編輯器 `etextedit` 中使用以 BibleMate AI 和 AgentMake AI 建構的外掛程式。
 
-Plugins `Extract Bible References` and `Insert Bible Text` are installed with BibleMate AI.
+外掛程式 `Extract Bible References` 和 `Insert Bible Text` 已隨 BibleMate AI 一起安裝。
 
-You may also add you own `etextedit` plugins and place them into `~/etextedit/plugins`.
+您也可以添加自己的 `etextedit` 外掛程式並將它們放入 `~/etextedit/plugins`。
 
-Read more about `etextedit` at https://github.com/eliranwong/etextedit 
+更多關於 `etextedit` 的資訊請參閱 https://github.com/eliranwong/etextedit
 
-## Export to DOCX or PDF [Optional]
+## 匯出為 DOCX 或 PDF [可選]
 
-`etextedit` offers options for exporting content into DOCX and PDF files.
+`etextedit` 提供將內容匯出為 DOCX 和 PDF 檔案的選項。
 
-- `pandoc` is required to export content to DOCX format. To install, for example, on Debian/Ubuntu:
+-   需要 `pandoc` 才能將內容匯出為 DOCX 格式。例如，在 Debian/Ubuntu 上安裝：
 
 > sudo apt install pandoc
 
-- `pdflatex` is required to export content to PDF format. To install, for example, on Debian/Ubuntu:
+-   需要 `pdflatex` 才能將內容匯出為 PDF 格式。例如，在 Debian/Ubuntu 上安裝：
 
 > sudo apt install texlive-full
 
-## Third-Party Text Editor [Optional]
+## 第三方文字編輯器 [可選]
 
-You can use a third-party text editor of your own choice. Enter `.backend` in the BibleMate AI prompt and specify the value of `DEFAULT_TEXT_EDITOR` with a command that calls your favorite text editor, e.g. `micro -softwrap true -wordwrap true`. To use the built-in text editor `etextedit` for making changes, you simply need one step, i.e. either save `Ctrl+S` or exit `Ctrl+Q`, to return to the BibleMate AI prompt. With third-party text editor, however, you need to save the changes first before exiting.
+您可以使用您自己選擇的第三方文字編輯器。在 BibleMate AI 提示中輸入 `.backend` 並使用呼叫您喜歡的文字編輯器的命令指定 `DEFAULT_TEXT_EDITOR` 的值，例如 `micro -softwrap true -wordwrap true`。要使用內建文字編輯器 `etextedit` 進行更改，您只需一個步驟，即儲存 `Ctrl+S` 或退出 `Ctrl+Q`，即可返回 BibleMate AI 提示。但是，使用第三方文字編輯器，您需要在退出前先儲存更改。
 
-## 🛠️ Customization
+## 🛠️ 自訂
 
-BibleMate AI is highly customizable. Advanced users can modify existing tools, create new ones, and even change the behavior of the AI agent by customizing system prompts.
+BibleMate AI 是高度可自訂的。進階使用者可以修改現有工具、創建新工具，甚至可以透過自訂系統提示來更改 AI 代理的行為。
 
-Custom files are placed in the `biblemate` sub-directory within the AgentMake user directory (typically `~/.agentmake/biblemate` on Linux/macOS or `%USERPROFILE%\.agentmake\biblemate` on Windows).
+自訂檔案放置在 AgentMake 使用者目錄中的 `biblemate` 子目錄中（在 Linux/macOS 上通常是 `~/.agentmake/biblemate`，在 Windows 上是 `%USERPROFILE%\.agentmake\biblemate`）。
 
-### Frequently Used Prompts and Plans
+### 常用提示與計畫
 
-You can save, search, open or delete frequently used prompts and plans.
+您可以儲存、搜尋、開啟或刪除常用的提示和計畫。
 
-For examples:
+例如：
 
-* Enter a prompt and use `Ctrl+W` to save a prompt.
-* Prefix a prompt with `@@` and use `Ctrl+W` to save a prompt.
-* Use `Esc+W` to delete a saved prompt / plan.
-* Use `Ctrl+L` to open a prompt / plan.
-* Use `Esc+L` to search for prompts / plans.
+*   輸入提示並使用 `Ctrl+W` 儲存提示。
+*   在提示前加上 `@@` 並使用 `Ctrl+W` 儲存提示。
+*   使用 `Esc+W` 刪除已儲存的提示/計畫。
+*   使用 `Ctrl+L` 開啟提示/計畫。
+*   使用 `Esc+L` 搜尋提示/計畫。
 
-### Override system prompts
+### 覆寫系統提示
 
-The agent's core logic is guided by system prompts, which are markdown files. You can override them by placing your own versions in `~/.agentmake/systems/biblemate/`.
+代理的核心邏輯由系統提示（markdown 檔案）指導。您可以透過將您自己的版本放置在 `~/.agentmake/systems/biblemate/` 中來覆寫它們。
 
-The customizable system prompt files are: `supervisor.md`, `tool_instruction.md`, and `tool_selection.md`. You can copy them from the `biblemate/systems` directory in the package installation folder to your user directory and modify them as needed.
+可自訂的系統提示檔案是：`supervisor.md`、`tool_instruction.md` 和 `tool_selection.md`。您可以將它們從套件安裝資料夾中的 `biblemate/systems` 目錄複製到您的使用者目錄並根據需要進行修改。
 
-### Add or Modify Tools & Plans
+### 新增或修改工具與計畫
 
-You can add your own tools and built-in plans (prompts) by creating a custom `bible_study_mcp.py` file.
+您可以透過創建自訂的 `bible_study_mcp.py` 檔案來添加您自己的工具和內建計畫（提示）。
 
-1.  First, locate the built-in `bible_study_mcp.py` file inside the `biblemate` package installation directory.
-2.  Copy this file to your user customization directory at `~/.agentmake/biblemate/bible_study_mcp.py`.
-3.  Now you can edit this file to add or modify tools and prompts using the `fastmcp` syntax. BibleMate AI will automatically load your custom file instead of the built-in one.
+1.  首先，在 `biblemate` 套件安裝目錄中找到內建的 `bible_study_mcp.py` 檔案。
+2.  將此檔案複製到您的使用者自訂目錄 `~/.agentmake/biblemate/bible_study_mcp.py`。
+3.  現在您可以編輯此檔案以使用 `fastmcp` 語法添加或修改工具和提示。BibleMate AI 將自動載入您的自訂檔案而不是內建檔案。
 
-### Use http as transport instead of stdio
+### 使用 http 作為傳輸方式而非 stdio
 
-BibleMate use `stdio` as the default transport for interacting with BibleMate MCP server.  You may use `http` instead.
+BibleMate 使用 `stdio` 作為與 BibleMate MCP 伺服器互動的預設傳輸方式。您可以使用 `http` 代替。
 
-Run in a thread:
+在一個執行緒中運行：
 
 > biblematemcp
 
-Run in another thread:
+在另一個執行緒中運行：
 
 > biblemate -mcp biblemate
 
-### Use Local Bible Data
+### 使用本地聖經資料
 
-Read [HERE](https://github.com/eliranwong/biblemate/issues/15#issuecomment-3314130281) for more details.
+更多詳情請參閱[此處](https://github.com/eliranwong/biblemate/issues/15#issuecomment-3314130281)。
 
-### Use Custom MCP Server
+### 使用自訂 MCP 伺服器
 
-You may use a custom MCP server via CLI option `mcp`, e.g.:
+您可以透過 CLI 選項 `mcp` 使用自訂 MCP 伺服器，例如：
 
 > biblemate -mcp http://127.0.0.1:33333/mcp
 
-### Host or Run a BibleMate MCP Server
+### 託管或執行 BibleMate MCP 伺服器
 
-Use default port `33333`:
+使用預設埠 `33333`：
 
 > biblematemcp
 
-The default port can be edited in the configuration file `config.py`.
+可以在設定檔 `config.py` 中編輯預設埠。
 
-To override the default port temporaily, e.g.:
+要暫時覆寫預設埠，例如：
 
 > biblematemcp -p 33334
 
-## 📖 Tutorials
+## 📖 教學
 
-... (coming soon) ...
+... （即將推出） ...
 
-## 📄 License
+## 📄 授權
 
-This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License - see the [LICENSE](LICENSE) file for details.
+本專案根據創用 CC 姓名標示-非商業性 4.0 國際授權條款進行授權 - 詳情請參閱 [LICENSE](LICENSE) 檔案。
 
-## 🙏 Acknowledgments
+## 🙏 致謝
 
-BibleMate AI is built upon the foundations of our other projects:
+BibleMate AI 建立在我們其他專案的基礎之上：
 *   [UniqueBible App](https.github.com/eliranwong/UniqueBible)
 *   [ComputeMate AI](https.github.com/eliranwong/computemate)
 *   [AgentMake AI](https.github.com/eliranwong/agentmake)
