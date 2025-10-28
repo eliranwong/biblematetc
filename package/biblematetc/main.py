@@ -249,8 +249,8 @@ async def download_data(console, default=""):
     }
     file_id = await DIALOGS.getValidOptions(
         options=file_ids.keys(),
-        title="BibleMate Data Files",
-        text="Select a file:",
+        title="BibleMate 資料庫",
+        text="請選擇要下載的資料庫檔案：",
         default=default,
     )
     if file_id:
@@ -446,7 +446,7 @@ async def main_async():
                 continue
             # luanch action menu
             elif user_request == ".":
-                select = await DIALOGS.getValidOptions(options=config.action_list.keys(), descriptions=[i.capitalize() for i in config.action_list.values()], title="Action Menu", text="Select an action:")
+                select = await DIALOGS.getValidOptions(options=config.action_list.keys(), descriptions=[i.capitalize() for i in config.action_list.values()], title="功能表", text="請選擇一個功能：")
                 user_request = select if select else ""
             # read bible references directly
             elif user_request.startswith(".") and not ((user_request in config.action_list) or user_request.startswith(".open ") or user_request.startswith(".import ")):
@@ -636,8 +636,8 @@ async def main_async():
                         options = json.loads(resource_content)
                         select = await DIALOGS.getValidOptions(
                             options=options,
-                            title="Multiple Matches",
-                            text="Select one of them to continue:"
+                            title="多個相關項目",
+                            text="請選擇其中一項以繼續："
                         )
                         if select:
                             if user_request.startswith("//name/"):
@@ -810,7 +810,7 @@ https://github.com/eliranwong/biblemate
 ## 取消正在進行的操作
 
 請按 `Ctrl+C` 一或兩次，直到正在進行的操作被取消。"""
-                    display_info(console, Markdown(help_info), title="Help")
+                    display_info(console, Markdown(help_info), title="幫助資訊")
                 elif user_request == ".tools":
                     enabled_tools = await DIALOGS.getMultipleSelection(
                         default_values=available_tools,
@@ -907,7 +907,7 @@ https://github.com/eliranwong/biblemate
                     display_info(console, info, title="設定")
                 elif user_request == ".steps":
                     console.print("請輸入允許執行步驟的最大數目：")
-                    max_steps = await getTextArea(default_entry=str(config.max_steps), title="Enter a positive integer:", multiline=False)
+                    max_steps = await getTextArea(default_entry=str(config.max_steps), title="請輸入一個正整數：", multiline=False)
                     if max_steps:
                         try:
                             max_steps = int(max_steps)
@@ -923,7 +923,7 @@ https://github.com/eliranwong/biblemate
                             display_info(console, info, title="錯誤！")
                 elif user_request == ".matches":
                     console.print("請輸入允許語義搜索的最大數目：")
-                    max_semantic_matches = await getTextArea(default_entry=str(config.max_semantic_matches), title="Enter a positive integer:", multiline=False)
+                    max_semantic_matches = await getTextArea(default_entry=str(config.max_semantic_matches), title="請輸入一個正整數：", multiline=False)
                     if max_semantic_matches:
                         try:
                             max_semantic_matches = int(max_semantic_matches)
@@ -971,20 +971,20 @@ https://github.com/eliranwong/biblemate
                     default_ai_mode = "chat" if config.agent_mode is None else "agent" if config.agent_mode else "partner"
                     ai_mode = await DIALOGS.getValidOptions(
                         default=default_ai_mode,
-                        options=["agent", "partner", "chat"],
+                        options=["代理", "搭檔", "對話"],
                         descriptions=["代理 - 全自動模式，AI 執行所有步驟", "搭檔 - 半自動操作模式，使用者參與檢閱及修改", "對話 - 簡單一問一答的對話模式"],
-                        title="AI Modes",
-                        text="Select an AI mode:"
+                        title="AI 模式",
+                        text="請選擇一個 AI 模式："
                     )
                     if ai_mode:
-                        if ai_mode == "agent":
+                        if ai_mode == "代理":
                             config.agent_mode = True
-                        elif ai_mode == "partner":
+                        elif ai_mode == "搭檔":
                             config.agent_mode = False
                         else:
                             config.agent_mode = None
                         write_user_config()
-                        display_info(console, f"`{ai_mode.capitalize()}` 模式已啓用", title="設定")
+                        display_info(console, f"`{ai_mode}` 模式已啓用", title="設定")
                 elif user_request == ".defaultbible":
                     select = await uba_default_bible(options=resource_suggestions_raw["bibleListAbb"], descriptions=resource_suggestions_raw["bibleList"])
                     if select:
@@ -1062,7 +1062,7 @@ https://github.com/eliranwong/biblemate
                 if config.agent_mode:
                     this_tool = suggested_tools[0] if suggested_tools else "get_direct_text_response"
                 else: # `partner` mode when config.agent_mode is set to False
-                    this_tool = await DIALOGS.getValidOptions(options=suggested_tools if suggested_tools else available_tools, title="Suggested Tools", text="Select a tool:")
+                    this_tool = await DIALOGS.getValidOptions(options=suggested_tools if suggested_tools else available_tools, title="建議工具", text="請選擇一個工具：")
                     if not this_tool:
                         this_tool = "get_direct_text_response"
                 display_info(console, Markdown(f"`{this_tool}`"), title="選用工具")
@@ -1377,7 +1377,7 @@ Available tools are: {available_tools}.
                 if config.agent_mode:
                     next_tool = suggested_tools[0] if suggested_tools else "get_direct_text_response"
                 else: # `partner` mode when config.agent_mode is set to False
-                    next_tool = await DIALOGS.getValidOptions(options=suggested_tools if suggested_tools else available_tools, title="Suggested Tools", text="Select a tool:")
+                    next_tool = await DIALOGS.getValidOptions(options=suggested_tools if suggested_tools else available_tools, title="建議工具", text="請選擇一個工具：")
                     if not next_tool:
                         next_tool = "get_direct_text_response"
                 prefix = f"指定工具 [{step}]" if DEVELOPER_MODE and not config.hide_tools_order else f"選用工具 [{step}]"

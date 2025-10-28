@@ -191,7 +191,7 @@ config.action_list = {
     ".lexicon": "搜尋詞彙",
     ".parallel": "搜尋平行經文",
     ".promise": "搜尋聖經應許",
-    ".focus": "搜尋聖經主題", # Changed from topic to focus for better context in Chinese
+    ".topic": "搜尋聖經主題", # Changed from topic to focus for better context in Chinese
     ".name": "搜尋聖經人名",
     ".character": "搜尋聖經人物",
     ".location": "搜尋聖經地點",
