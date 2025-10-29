@@ -39,7 +39,7 @@ BibleMate AI 支援在 Windows 11, macOS, linux, ChromeOS, Android 上運作，�
 1. 開啓 [https://python.org](https://python.org) ，選擇 `Downloads` -> `macOS`，切勿直接下載 3.14 版本，BibleMate AI 目前只支援 python versions 3.9-3.12
 <img width="1503" height="660" alt="Image" src="https://github.com/user-attachments/assets/81f0eb85-20ea-4480-8ff5-17c0d4dac0e6" />
 
-2. 選擇 Download [macOS 64-bit universal2 installer](https://www.python.org/ftp/python/3.12.10/python-3.12.10-macos11.pkg) 。你也可以選用其他版本，但需要是在 3.9-3.12 這範圍內。
+2. 選擇 Download [macOS 64-bit universal2 installer](https://www.python.org/ftp/python/3.12.10/python-3.12.10-macos11.pkg) 。你也可以選用其他版本，但必須是在 3.9-3.12 這範圍內。
 
 <img width="987" height="865" alt="Image" src="https://github.com/user-attachments/assets/b3c7bcbb-da7e-4590-8d74-cce13a269605" />
 
@@ -115,7 +115,10 @@ BibleMate AI 支援三種 AI 模式 - 代理，搭檔，對話 - 供使用者按
 
 ## 支援語義搜索 Semantic Searches [Optional]
 
-在 BibleMate AI 輸入要求 `.download`，按指示下載附加的資料庫。如此便可以搜索多項聖經資料，如聖經，原文字典，百科全書，聖經應許 ... 等。
+你可以通過 BibleMate AI 搜索多項聖經資料，如聖經，原文字典，百科全書，聖經應許 ... 等，但需要兩個額外的設置：
+
+1. 在你的電腦上安裝 Ollama （BibleMate AI 使用 Ollama 建立向量資料庫） ，下載可參考 https://ollama.com/download
+2. 在 BibleMate AI 輸入要求 `.download`，按指示下載附加的資料庫。
 
 <img width="866" height="629" alt="Image" src="https://github.com/user-attachments/assets/1e8aa6b2-4c47-4fe0-9e9d-7d5163f88ea4" />
 
