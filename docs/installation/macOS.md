@@ -128,10 +128,6 @@ BibleMate AI 預設連接[英倫福音教會](ttps://bible.gospelchurch.uk)的�
 
 BibleMate AI 大多的功能都能通過快速鍵開啓，其中五個組合正是爲了快速開啓聖經相關資料而設計的：
 
-`Ctrl+F` 搜索聖經資料庫 [幫助記憶：F -> Find]
-
-<img width="1002" height="697" alt="Image" src="https://github.com/user-attachments/assets/a5005066-029f-432f-88a2-771dddd52f8f" />
-
 `Ctrl+B` 開啓聖經選項 [幫助記憶：B -> Bible]
 
 <img width="1002" height="697" alt="Image" src="https://github.com/user-attachments/assets/2016b4cc-f370-4aa1-bcd9-8b8b30f8a727" />
@@ -147,6 +143,10 @@ BibleMate AI 大多的功能都能通過快速鍵開啓，其中五個組合正�
 `Ctrl+X` 開啓經文串珠功能 [幫助記憶：X -> Cross-references]
 
 <img width="1002" height="697" alt="Image" src="https://github.com/user-attachments/assets/aa2e31fb-e89c-4af8-bd5e-53e631fc12ce" />
+
+`Ctrl+F` 搜索聖經資料庫 [幫助記憶：F -> Find] ，這項目需要額外設置，請參考 https://github.com/eliranwong/biblematetc/blob/main/docs/installation/macOS.md#%E6%94%AF%E6%8F%B4%E8%AA%9E%E7%BE%A9%E6%90%9C%E7%B4%A2-semantic-searches-optional
+
+<img width="1002" height="697" alt="Image" src="https://github.com/user-attachments/assets/a5005066-029f-432f-88a2-771dddd52f8f" />
 
 ## 更多快速鍵
 
