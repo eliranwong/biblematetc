@@ -69,11 +69,11 @@ bmtc
 
 <img width="372" height="360" alt="Image" src="https://github.com/user-attachments/assets/667f10d0-075c-478b-a2f5-717b7decd936" />
 
-4. 輸入在第一步申請的 Google Gemini API Key。如果不想一個個字打進去，可以把 API Key 先複製 Copy，`然後按 Command+V` 貼上 Paste 這裏：
+4. 輸入在第一步申請的 Google Gemini API Key。如果不想一個個字打進去，可以把 API Key 先複製 Copy，`然後按 Command+V` 貼上 Paste 這裏（請用你有效的 API Key 取代 xxxxxxxxxxx）：
 
 <img width="1002" height="697" alt="Image" src="https://github.com/user-attachments/assets/ee882eae-514f-4406-95cf-a40d1fe632ac" />
 
-5. BibleMate AI 支援輪流使用數個 API Keys：
+5. BibleMate AI 支援輪流使用數個 API Keys（用英文逗號 `,` 隔開多個 API Keys，但不要加空格）：
 
 <img width="1002" height="697" alt="Image" src="https://github.com/user-attachments/assets/6520bcbf-ee7d-4727-8c1d-2fb36b7e3a69" />
 
