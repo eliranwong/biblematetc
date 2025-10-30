@@ -422,7 +422,7 @@ async def main_async():
                     # check connection
                     if not config.skip_connection_check:
                         try:
-                            agentmake("您好！", system=DEFAULT_SYSTEM)
+                            agentmake("您好！", backend=config.backend, system=DEFAULT_SYSTEM)
                         except Exception as e:
                             print("連線失敗！請確認您的網路連線穩定，並確保我 AI 供應端和模型配置正確。")
                             print("開啟 https://github.com/eliranwong/agentmake#supported-backends 以取得更多諮詢。\n")
