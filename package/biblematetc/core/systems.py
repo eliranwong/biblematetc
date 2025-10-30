@@ -1,12 +1,6 @@
 import os, re
 from biblematetc import config, request_chinese_response
 from agentmake import PACKAGE_PATH, AGENTMAKE_USER_DIR, readTextFile
-from pathlib import Path
-
-# set up user_directory for customisation
-user_directory = os.path.join(AGENTMAKE_USER_DIR, "biblemate")
-Path(user_directory).mkdir(parents=True, exist_ok=True)
-
 
 def get_system_progress(master_plan: str) -> str:
     """
