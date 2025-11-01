@@ -1,4 +1,4 @@
-# ✨ 特殊輸入前綴
+# 🏷️ 特殊輸入前綴
 
 除了 [鍵盤快捷鍵](https://github.com/eliranwong/biblematetc/blob/main/docs/tutorials/Key_Bindings.md) 之外，以下輸入前綴在所有 AI 模式中普遍適用：
 

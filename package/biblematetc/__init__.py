@@ -50,8 +50,8 @@ config.light=True
 config.web_browser=False
 config.hide_tools_order=True
 config.skip_connection_check=False
-config.default_bible="NET"
-config.default_commentary="CBSC"
+config.default_bible="CUV"
+config.default_commentary="新英語譯本"
 config.default_encyclopedia="ISB"
 config.default_lexicon="Morphology"
 config.max_semantic_matches=15
@@ -243,6 +243,9 @@ BIBLEMATE_VERSION = readTextFile(os.path.join(os.path.dirname(os.path.realpath(_
 BIBLEMATEDATA = os.path.join(BIBLEMATE_USER_DIR, "data")
 if not os.path.isdir(BIBLEMATEDATA):
     Path(BIBLEMATEDATA).mkdir(parents=True, exist_ok=True)
+BIBLEMATETEMP = os.path.join(os.path.dirname(os.path.realpath(__file__)), "temp")
+if not os.path.isdir(BIBLEMATETEMP):
+    Path(BIBLEMATETEMP).mkdir(parents=True, exist_ok=True)
 DIALOGS = TerminalModeDialogs()
 
 def fix_string(content):
