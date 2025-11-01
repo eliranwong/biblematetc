@@ -86,15 +86,15 @@ graph TD
 
 請在 https://github.com/eliranwong/biblematetc/blob/main/docs/installation/macOS.md 閱讀最新的安裝說明
 
-> pip install --upgrade biblemate
+> pip install --upgrade biblematetc
 
 要運行 BibleMate AI：
 
-> biblemate
+> biblematetc
 
 或
 
-> bm
+> bmtc
 
 在 BibleMate AI 提示符中輸入您的請求。
 
