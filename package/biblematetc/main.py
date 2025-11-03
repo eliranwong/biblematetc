@@ -1158,7 +1158,7 @@ https://github.com/eliranwong/biblemate
 
             # Prompt Engineering
             original_request = user_request
-            if not specified_tool == "@@" and config.prompt_engineering and not user_request in ("[STOP]", "[CONTINUE]"):
+            if ((not specified_tool) or (specified_tool == "get_direct_text_response")) and config.prompt_engineering and not user_request in ("[STOP]", "[CONTINUE]"):
                 improved_prompt_output = ""
                 async def run_prompt_engineering():
                     nonlocal user_request, improved_prompt_output
@@ -1231,7 +1231,8 @@ https://github.com/eliranwong/biblemate
                             console.print(f"錯誤： {e}\n使用基本簡單對話模式 ...\n\n")
                             print(traceback.format_exc())
                         messages = agentmake(messages, system="auto", **AGENTMAKE_CONFIG)
-                messages[-1]["content"] = fix_string(messages[-1]["content"])
+                if messages:
+                    messages[-1]["content"] = fix_string(messages[-1]["content"])
 
             # execute a single tool
             if specified_tool and not specified_tool == "@@" and not specified_prompt:
@@ -1254,22 +1255,22 @@ https://github.com/eliranwong/biblemate
                         await thinking(refine_tool_instruction, "優化工具指示中 ...")
                         if not refined_instruction_output:
                             display_cancel_message(console)
-                            if step == 1:
-                                config.current_prompt = original_request
-                            conversation_broken = True
-                            break
-                        else:
-                            messages[-1]['content'] = refined_instruction
+                            config.current_prompt = original_request
+                            continue
                     except (KeyboardInterrupt, asyncio.CancelledError):
                         display_cancel_message(console)
-                        if step == 1:
-                            config.current_prompt = original_request
-                        conversation_broken = True
-                        break
+                        config.current_prompt = original_request
+                        continue
+                    # review in partner or chat mode
+                    if not config.agent_mode:
+                        display_info(console, "請審閱並確認優化後的指示，或進行任何您需要的更改。", title="檢閱")
+                        refined_instruction = await getTextArea(default_entry=refined_instruction, title="檢閱：優化後的指示")
+                        if not refined_instruction or refined_instruction == ".exit":
+                            display_cancel_message(console)
+                            continue
+                    messages[-1]['content'] = refined_instruction
                     # display refined instruction
-                    display_info(console, Markdown(messages[-1]['content']), title="優化後的指示", border_style=get_border_style())
-                elif config.prompt_engineering:
-                    display_info(console, Markdown(messages[-1]['content']), title="優化後的指示", border_style=get_border_style())
+                    display_info(console, Markdown(refined_instruction), title="優化後的指示", border_style=get_border_style())
                 try:
                     await process_tool(specified_tool, user_request)
                 except (KeyboardInterrupt, asyncio.CancelledError):
@@ -1286,7 +1287,6 @@ https://github.com/eliranwong/biblemate
             # Chat mode
             messages_output = []
             if config.agent_mode is None and not specified_tool == "@@" and not specified_prompt:
-                display_info(console,Markdown(messages[-1]['content']), border_style="none")
                 async def run_chat_mode():
                     nonlocal messages_output, messages, user_request
                     messages_output = agentmake(messages if messages else user_request, system="auto", **AGENTMAKE_CONFIG)
@@ -1306,8 +1306,8 @@ https://github.com/eliranwong/biblemate
                     if messages and messages[-1].get("role", "") == "user":
                         messages = messages[:-1] # remove the last user message
                     continue
-                print()
                 console.print(Markdown(messages[-1]['content']))
+                print()
                 # temporaily save after each step
                 backup_conversation(messages, "")
                 config.backup_required = True
@@ -1500,8 +1500,8 @@ Available tools are: {available_tools}.
                         config.current_prompt = original_request
                     conversation_broken = True
                     break
-                # partner mode
-                if config.agent_mode == False:
+                # partner mode or when request is started with `@@`
+                if not config.agent_mode:
                     display_info(console, "請審閱並確認下一步指示，或進行任何您需要的更改。", title="檢閱")
                     next_step_edit = await getTextArea(default_entry=next_step, title="檢閱：下一步指示")
                     if not next_step_edit or next_step_edit == ".exit":
