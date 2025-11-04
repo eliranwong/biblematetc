@@ -10,10 +10,14 @@
 
 ## 內建計畫
 
-內建計畫是預先定義、常用且使用者可以快速存取的「主要計畫」。目前，我們已新增兩個內建計畫以供示範。使用者可以透過[自訂](https://github.com/eliranwong/biblemate#customization)新增自己的計畫。
+內建計畫是預先定義、常用且使用者可以快速存取的「主要計畫」。目前，我們已新增兩個內建計畫以供示範。
 
 以斜線 `/` 開頭您的提示以呼叫計畫，例如：
 
 > /simple_bible_study 約翰福音 3:16
 
 > /bible_devotion 申命記 6:4
+
+## 自定計畫
+
+請看 https://github.com/eliranwong/biblematetc/blob/main/docs/tutorials/Custom_Master_Plan.md

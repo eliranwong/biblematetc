@@ -802,9 +802,15 @@ async def main_async():
                     config.backup_required = False
                 elif user_request == ".help":
                     actions = "\n".join([f"- `{k}`: {v}" for k, v in config.action_list.items()])
-                    help_info = f"""## BibleMate AI
+                    help_info = f"""## BibleMate.AI
+
+https://biblemate.ai
 
 https://github.com/eliranwong/biblemate
+
+## 功能簡介
+
+https://github.com/eliranwong/biblematetc/tree/main/docs/tutorials
 
 ## 特定指令
 

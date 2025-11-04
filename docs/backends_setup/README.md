@@ -20,11 +20,11 @@ BibleMate AI + `XAI + Grok 4` https://youtu.be/JgcxciOc_Ys
 
 ## 後端設定範例
 
-更多詳細資訊請參閱 https://github.com/eliranwong/biblemate/tree/main/docs/backends_setup。
+更多詳細資訊請參閱 https://github.com/eliranwong/biblematetc/tree/main/docs/backends_setup。
 
 ## 提示
 
-為了快速上手，我們建議從 `googleai` 後端開始，該後端已與 BibleMate AI 進行了廣泛的測試。您可以免費獲取 Gemini API 金鑰。更多資訊，請瀏覽：[https://github.com/eliranwong/biblemate/blob/main/docs/backends_setup/googleai.md](https://github.com/eliranwong/biblemate/blob/main/docs/backends_setup/googleai.md)。
+為了快速上手，我們建議從 `googleai` 後端開始，該後端已與 BibleMate AI 進行了廣泛的測試。您可以免費獲取 Gemini API 金鑰。更多資訊，請瀏覽：[https://github.com/eliranwong/biblematetc/blob/main/docs/backends_setup/googleai.md](https://github.com/eliranwong/biblematetc/blob/main/docs/backends_setup/googleai.md)。
 
 # ⚙️ 設定 AI 後端
 
@@ -65,4 +65,4 @@ BIBLEMATE_MCP_AUDIENCE=
 
 ## 更多範例
 
-請在 https://github.com/eliranwong/biblemate/tree/main/docs/backends_setup 查看個別範例
+請在 https://github.com/eliranwong/biblematetc/tree/main/docs/backends_setup 查看個別範例

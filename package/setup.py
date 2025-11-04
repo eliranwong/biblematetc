@@ -2,7 +2,7 @@ from setuptools import setup
 from setuptools.command.install import install
 import os, shutil, platform, sys
 
-version = "0.2.47"
+version = "0.2.49"
 with open(os.path.join("biblematetc", "version.txt"), "w", encoding="utf-8") as fileObj:
     fileObj.write(version)
 
@@ -72,13 +72,13 @@ setup(
             f"{package}mcp={package}.biblematemcp:mcp",
         ],
     },
-    keywords="mcp agent toolmate ai anthropic azure chatgpt cohere deepseek genai github googleai groq llamacpp mistral ollama openai vertexai xai",
-    url="https://toolmate.ai",
+    keywords="mcp agent biblemate ai anthropic azure chatgpt cohere deepseek genai github googleai groq llamacpp mistral ollama openai vertexai xai",
+    url="https://biblemate.ai",
     project_urls={
         "Source": "https://github.com/eliranwong/biblematetc",
         "Tracker": "https://github.com/eliranwong/biblematetc/issues",
         "Documentation": "https://github.com/eliranwong/biblematetc/wiki",
-        "Funding": "https://www.paypal.me/toolmate",
+        "Funding": "https://www.paypal.me/MarvelBible",
     },
     classifiers=[
         # Reference: https://pypi.org/classifiers/

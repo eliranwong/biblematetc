@@ -5,7 +5,7 @@ BibleMate AI 支援 十多個 AI 供應端，如 OpenAI, Google Gemini, xAI, Gro
 BibleMate AI 支援在 Windows 11, macOS, linux, ChromeOS, Android 上運作，基本的步驟離不開下面三個：
 
 1. [登記 AI 供應雲端服務](https://github.com/eliranwong/biblematetc/blob/main/docs/installation/macOS.md#%E7%AC%AC%E4%B8%80%E6%AD%A5---%E7%94%B3%E8%AB%8B-google-gemini-api-keys%E5%85%8D%E8%B2%BB)（如果有好的電腦配備，可以免去這步）
-2. [安裝 Python 3.8-3.12](https://github.com/eliranwong/biblematetc/blob/main/docs/installation/macOS.md#%E7%AC%AC%E4%BA%8C%E6%AD%A5---%E5%AE%89%E8%A3%9D-python)（Linux 系統一般都預設安裝了 python，或可免這步）
+2. [安裝 Python 3.10-3.12](https://github.com/eliranwong/biblematetc/blob/main/docs/installation/macOS.md#%E7%AC%AC%E4%BA%8C%E6%AD%A5---%E5%AE%89%E8%A3%9D-python)（Linux 系統一般都預設安裝了 python，或可免這步）
 3. [安裝 BibleMate AI](https://github.com/eliranwong/biblematetc/blob/main/docs/installation/macOS.md#%E7%AC%AC%E4%B8%89%E6%AD%A5---%E5%AE%89%E8%A3%9D-biblemate-ai-%E4%B8%AD%E6%96%87%E7%89%88)
 
 ## 第一步 - 申請 Google Gemini API Keys（免費）
@@ -36,7 +36,7 @@ BibleMate AI 支援在 Windows 11, macOS, linux, ChromeOS, Android 上運作，�
 
 ## 第二步 - 安裝 python 
 
-1. 開啓 [https://python.org](https://python.org) ，選擇 `Downloads` -> `macOS`，切勿直接下載 3.14 版本，BibleMate AI 目前只支援 python versions 3.9-3.12
+1. 開啓 [https://python.org](https://python.org) ，選擇 `Downloads` -> `macOS`，切勿直接下載 3.14 版本，BibleMate AI 目前只支援 python versions 3.10-3.12
 <img width="1503" height="660" alt="Image" src="https://github.com/user-attachments/assets/81f0eb85-20ea-4480-8ff5-17c0d4dac0e6" />
 
 2. 選擇 Download [macOS 64-bit universal2 installer](https://www.python.org/ftp/python/3.12.10/python-3.12.10-macos11.pkg) 。你也可以選用其他版本，但必須是在 3.9-3.12 這範圍內。
